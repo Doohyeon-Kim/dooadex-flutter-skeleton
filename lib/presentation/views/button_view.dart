@@ -10,6 +10,16 @@ class ButtonView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        DooadexButton.convex(
+          onPressed: () {},
+          child: const Text(
+            "Convex Button",
+          ),
+          onPressedChild: Text(
+            "Convex Button",
+            style: const TextStyle().copyWith(color: Colors.white),
+          ),
+        ),
         DooadexButton.elevated(
           onPressed: () {},
           child: const Text("Elevated Button"),

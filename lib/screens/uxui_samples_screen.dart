@@ -1,4 +1,4 @@
-import 'package:dooadex_flutter_skeleton/constants/named_route.dart';
+import 'package:dooadex_flutter_skeleton/constants/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,18 +14,10 @@ class UxUiSamplesScreen extends StatelessWidget {
       children: [
         DooadexButton.elevated(
           onPressed: () {
-            GoRouter.of(context).push(RoutePath.buttonSamples);
-            // return context.go(RoutePath.buttonSamples);
-            // return context.goNamed("button_samples");
+            GoRouter.of(context).pushNamed(RouteName.buttonSamples);
           },
           child: const Text("Button Samples"),
         ),
-
-        // filledButton(
-        //     onPressed: () {},
-        //     textStyle: notoSansRegular24.copyWith(color: Colors.white),
-        //     backgroundColor: DooadexColor.red,
-        //     text: 'errorToast'),
       ],
     );
   }

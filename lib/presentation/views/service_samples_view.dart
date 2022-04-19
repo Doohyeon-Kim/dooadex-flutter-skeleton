@@ -69,7 +69,6 @@ class ServiceSamplesView extends StatelessWidget {
                             .read<UserViewModel>()
                             .getUser(name: "dhkim");
                       } catch (error) {
-                        logger7.e(error.toString());
                         ErrorMessageHandler.printErrorMessage(context: context);
                       }
                     },

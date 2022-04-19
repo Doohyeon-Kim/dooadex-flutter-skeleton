@@ -92,7 +92,7 @@ class TimeoutError extends DooadexError{
 class UnstableNetwork extends DooadexError{
   UnstableNetwork({String? type, String? message, String? errorUserTitle, String? errorUserMsg})
       : super(
-      type: type ?? ErrorType.timeoutError,
+      type: type ?? ErrorType.unstableNetwork,
       message: message ?? 'Unstable Network',
       errorUserTitle: errorUserTitle ?? "불안정한 네트워크 환경",
       errorUserMsg: errorUserMsg ?? "네트워크 환경이 불안정 합니다.\n잠시 후 다시 시도해주세요.");

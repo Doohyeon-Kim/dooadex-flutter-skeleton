@@ -1,7 +1,8 @@
-import 'package:dooadex_flutter_skeleton/constants/named_route.dart';
+import 'package:dooadex_flutter_skeleton/constants/route_names.dart';
 import 'package:dooadex_flutter_skeleton/screens/button_samples_screen.dart';
 import 'package:dooadex_flutter_skeleton/screens/home_screen.dart';
 import 'package:dooadex_flutter_skeleton/screens/root_screen.dart';
+import 'package:dooadex_flutter_skeleton/services/nevigation/router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -12,33 +13,11 @@ import 'services/kakao_sdk/kakao_sdk.dart';
 
 void main() {
   KakaoSdkManager.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-  final GoRouter _router = GoRouter(
-    initialLocation: '/',
-    routes: <GoRoute>[
-      GoRoute(
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) =>
-            const RootScreen(),
-      ),
-      GoRoute(
-        name: "home",
-        path: RoutePath.home,
-        builder: (BuildContext context, GoRouterState state) =>
-            const HomeScreen(),
-      ),
-      GoRoute(
-        name: "button_samples",
-        path: RoutePath.buttonSamples,
-        builder: (BuildContext context, GoRouterState state) =>
-        const ButtonSamplesScreen(),
-      ),
-    ],
-  );
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +30,11 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        routeInformationParser: _router.routeInformationParser,
-        routerDelegate: _router.routerDelegate,
+        routeInformationParser: DooadexRouter.router.routeInformationParser,
+        routerDelegate: DooadexRouter.router.routerDelegate,
+
+        // routeInformationParser: _router.routeInformationParser,
+        // routerDelegate: _router.routerDelegate,
       ),
     );
   }

@@ -10,6 +10,16 @@ class DooadexButton extends StatefulWidget {
 
   final Widget buttonWidget;
 
+  factory DooadexButton.convex(
+      {required VoidCallback onPressed,
+      Size? size,
+      Color? color,
+      Color? tappedColor,
+      Widget? child,
+      Widget? onPressedChild,
+      double? circular,
+      EdgeInsetsGeometry? padding}) = _ConvexButton;
+
   factory DooadexButton.elevated(
       {required VoidCallback onPressed,
       Widget? child,
@@ -98,6 +108,53 @@ class _DooadexButtonState extends State<DooadexButton> {
   Widget build(BuildContext context) {
     return widget.buttonWidget;
   }
+}
+
+class _ConvexButton extends DooadexButton {
+  static bool _hasBeenPressed = false;
+
+  _ConvexButton(
+      {Key? key,
+      required VoidCallback onPressed,
+      Widget? child,
+      Widget? onPressedChild,
+      Size? size,
+      Color? color,
+      Color? tappedColor,
+      double? circular,
+      EdgeInsetsGeometry? padding})
+      : super(
+          key: key,
+          buttonWidget: StatefulBuilder(
+            builder: (context, state) {
+              return GestureDetector(
+                onTapDown: (TapDownDetails tapped) {
+                  _hasBeenPressed = true;
+                  state(() {});
+                },
+                onTapUp: (TapUpDetails tapped) {
+                  _hasBeenPressed = false;
+                  state(() {});
+                  onPressed.call();
+                },
+                child: Container(
+                  width: size?.width,
+                  height: size?.height,
+                  decoration: BoxDecoration(
+                    color: _hasBeenPressed == false
+                        ? color ?? DooadexColor.tonalGreen
+                        : tappedColor ?? DooadexColor.green,
+                    borderRadius: BorderRadius.circular(circular ?? 4.0),
+                  ),
+                  child: Padding(
+                    padding: padding ?? const EdgeInsets.all(12.0),
+                    child: _hasBeenPressed == false ? child : onPressedChild,
+                  ),
+                ),
+              );
+            },
+          ),
+        );
 }
 
 class _ElevatedButton extends DooadexButton {
@@ -246,6 +303,7 @@ class _TextButton extends DooadexButton {
           ),
         );
 }
+
 class _DestructiveTextButton extends DooadexButton {
   _DestructiveTextButton({
     Key? key,
@@ -254,19 +312,20 @@ class _DestructiveTextButton extends DooadexButton {
     Color? color,
     TextStyle? textStyle,
   }) : super(
-    key: key,
-    buttonWidget: TextButton(
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: textStyle ??
-            Typo.body.copyWith(
-              color: color ?? DooadexColor.red,
+          key: key,
+          buttonWidget: TextButton(
+            onPressed: onPressed,
+            child: Text(
+              text,
+              style: textStyle ??
+                  Typo.body.copyWith(
+                    color: color ?? DooadexColor.red,
+                  ),
             ),
-      ),
-    ),
-  );
+          ),
+        );
 }
+
 class _IconButton extends DooadexButton {
   _IconButton({
     Key? key,
