@@ -1,4 +1,4 @@
-import 'package:dooadex_flutter_skeleton/constants/route_names.dart';
+import 'package:dooadex_flutter_skeleton/constants/route_contants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,7 +14,7 @@ class UxUiSamplesScreen extends StatelessWidget {
       children: [
         DooadexButton.elevated(
           onPressed: () {
-            GoRouter.of(context).pushNamed(RouteName.buttonSamples);
+            GoRouter.of(context).pushNamed(DooadexRoute.name.buttonSamples);
           },
           child: const Text("Button Samples"),
         ),

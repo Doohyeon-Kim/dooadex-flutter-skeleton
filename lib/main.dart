@@ -1,4 +1,4 @@
-import 'package:dooadex_flutter_skeleton/constants/route_names.dart';
+import 'package:dooadex_flutter_skeleton/constants/route_contants.dart';
 import 'package:dooadex_flutter_skeleton/screens/button_samples_screen.dart';
 import 'package:dooadex_flutter_skeleton/screens/home_screen.dart';
 import 'package:dooadex_flutter_skeleton/screens/root_screen.dart';

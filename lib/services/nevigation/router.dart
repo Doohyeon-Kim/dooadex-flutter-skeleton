@@ -1,4 +1,4 @@
-import 'package:dooadex_flutter_skeleton/constants/route_names.dart';
+import 'package:dooadex_flutter_skeleton/constants/route_contants.dart';
 import 'package:dooadex_flutter_skeleton/screens/home_screen.dart';
 import 'package:dooadex_flutter_skeleton/screens/root_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +13,8 @@ class DooadexRouter {
     debugLogDiagnostics: true,
     routes: [
       GoRoute(
-          name: "root",
-          path: '/',
+          name: DooadexRoute.path.root,
+          path: DooadexRoute.name.root,
           pageBuilder: (context, state) {
             return MaterialPage(
               key: state.pageKey,
@@ -22,8 +22,8 @@ class DooadexRouter {
             );
           }),
       GoRoute(
-          name: RouteName.home,
-          path: '/home',
+          path: DooadexRoute.path.home,
+          name: DooadexRoute.name.home,
           pageBuilder: (context, state) {
             return MaterialPage(
               key: state.pageKey,
@@ -31,8 +31,8 @@ class DooadexRouter {
             );
           }),
       GoRoute(
-        name: RouteName.buttonSamples,
-        path: '/home/button-samples',
+        path: DooadexRoute.path.buttonSamples,
+        name: DooadexRoute.name.buttonSamples,
         pageBuilder: (context, state) {
           return MaterialPage(
             key: state.pageKey,
