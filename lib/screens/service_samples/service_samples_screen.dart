@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../presentation/views/service_samples_view.dart';
+import '../../presentation/views/samples/service_samples_view.dart';
 
 class ServiceSamplesScreen extends StatelessWidget {
   const ServiceSamplesScreen({Key? key}) : super(key: key);

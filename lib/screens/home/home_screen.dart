@@ -1,4 +1,4 @@
-import 'package:dooadex_flutter_skeleton/presentation/views/home_view.dart';
+import 'package:dooadex_flutter_skeleton/presentation/views/home/home_view.dart';
 import 'package:dooadex_flutter_skeleton/services/native_api/location.dart';
 import 'package:flutter/material.dart';
 

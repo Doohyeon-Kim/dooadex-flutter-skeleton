@@ -9,7 +9,8 @@ class DooadexColor {
   static Color blue = const Color(0xFF032593);
   static Color gray = const Color(0xFF939393);
   static Color green = const Color(0xFF325325);
-  static Color tonalGreen = const Color(0xFFB3BFAE);
+  static Color artichoke = const Color(0xFF83977B);
+  static Color ashGray = const Color(0xFFB3BFAE);
   static Color yellow = const Color(0xFFDDD000);
 }
 

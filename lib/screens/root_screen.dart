@@ -1,32 +1,36 @@
 import 'package:dooadex_flutter_skeleton/configs/app_config.dart';
 import 'package:dooadex_flutter_skeleton/constants/app_constants.dart';
-import 'package:dooadex_flutter_skeleton/screens/home_screen.dart';
-import 'package:dooadex_flutter_skeleton/screens/splash_screen.dart';
+import 'package:dooadex_flutter_skeleton/presentation/views/splash_view.dart';
 import 'package:dooadex_flutter_skeleton/services/native_api/local_notification.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class RootScreen extends StatelessWidget {
+import '../constants/route_constants.dart';
+
+class RootScreen extends StatefulWidget {
   const RootScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: appInitialize(context),
-      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-        if (snapshot.hasData == false) {
-          return const SplashScreen();
-        } else if (snapshot.hasError) {
-          return const Text('애플리케이션 실행에 오류가 발생했습니다.');
-        } else {
-          return const HomeScreen();
-        }
-      },
-    );
+  State<RootScreen> createState() => _RootScreenState();
+}
+
+class _RootScreenState extends State<RootScreen> {
+  @override
+  void initState() {
+    super.initState();
+    appInitialize();
   }
 
-  Future<bool> appInitialize(BuildContext context) async {
-    maxWidth = MediaQuery.of(context).size.width;
-    maxHeight = MediaQuery.of(context).size.height;
+  @override
+  Widget build(BuildContext context) {
+    return const SplashView();
+  }
+
+  appInitialize() async {
+    maxWidth =
+        MediaQueryData.fromWindow(WidgetsBinding.instance!.window).size.width;
+    maxHeight =
+        MediaQueryData.fromWindow(WidgetsBinding.instance!.window).size.height;
 
     unitWidth4 = maxWidth / 93.75;
     unitHeight4 = maxHeight / 203;
@@ -63,8 +67,12 @@ class RootScreen extends StatelessWidget {
     unitHeight56 = unitHeight4 * 14;
     unitHeight60 = unitHeight4 * 15;
 
-    topSafeAreaPadding = MediaQuery.of(context).padding.top;
-    bottomSafeAreaPadding = MediaQuery.of(context).padding.bottom;
+    topSafeAreaPadding =
+        MediaQueryData.fromWindow(WidgetsBinding.instance!.window).padding.top;
+    bottomSafeAreaPadding =
+        MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
+            .padding
+            .bottom;
     safeAreaPadding = topSafeAreaPadding + bottomSafeAreaPadding;
 
     topNavigationBarHeight = unitHeight60;
@@ -82,6 +90,6 @@ class RootScreen extends StatelessWidget {
       await Future.delayed(splashHolderDuration);
     }
 
-    return true;
+    GoRouter.of(context).goNamed(DooadexRoute.name.home);
   }
 }

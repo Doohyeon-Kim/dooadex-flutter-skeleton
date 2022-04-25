@@ -1,13 +1,15 @@
+class _RoutePath {
+  String root = '/';
+  String home = '/home';
+  String buttonSamples = 'button-samples';
+  String textFormFieldSamples = 'text-form-field-samples';
+}
+
 class _NamedRoute {
   String root = '/';
   String home = 'home';
   String buttonSamples = 'button_samples';
-}
-
-class _RoutePath {
-  String root = '/';
-  String home = '/home';
-  String buttonSamples = '/home/button-samples';
+  String textFormFieldSamples = 'text_form_field_samples';
 }
 
 class DooadexRoute {

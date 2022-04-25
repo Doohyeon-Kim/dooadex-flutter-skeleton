@@ -1,9 +1,11 @@
 import 'package:dooadex_flutter_skeleton/configs/palette.dart';
-import 'package:dooadex_flutter_skeleton/presentation/view_models/home_view_model.dart';
-import 'package:dooadex_flutter_skeleton/screens/service_samples_screen.dart';
-import 'package:dooadex_flutter_skeleton/screens/uxui_samples_screen.dart';
+import 'package:dooadex_flutter_skeleton/presentation/view_models/bottom_navigation_index_view_model.dart';
+import 'package:dooadex_flutter_skeleton/screens/service_samples/service_samples_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../screens/io_samples_screens/io_samples_screen.dart';
+import '../../../screens/uxui_samples/uxui_samples_screen.dart';
 
 
 class HomeView extends StatelessWidget {
@@ -25,7 +27,7 @@ class HomeView extends StatelessWidget {
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
-    Container(),
+    const IoSamplesScreen(),
     const UxUiSamplesScreen(),
     const ServiceSamplesScreen(),
   ];
@@ -34,16 +36,16 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<BottomNavigationViewModel>(
-      create: (context) => BottomNavigationViewModel(),
-      child: Consumer<BottomNavigationViewModel>(builder: (context, bottomNaviagationViewModel, child) {
+    return ChangeNotifierProvider<BottomNavigationIndexViewModel>(
+      create: (context) => BottomNavigationIndexViewModel(),
+      child: Consumer<BottomNavigationIndexViewModel>(builder: (context, bottomNaviagationViewModel, child) {
         return Scaffold(
           body: Center(
             child: _widgetOptions.elementAt(bottomNaviagationViewModel.selectedIndex),
           ),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.shifting,
-            currentIndex: context.watch<BottomNavigationViewModel>().selectedIndex,
+            currentIndex: context.watch<BottomNavigationIndexViewModel>().selectedIndex,
             items: buildBottomNavBarItems(),
             onTap: (index) {
               bottomNaviagationViewModel.onItemTapped(index: index);

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../components/buttons/dooadex_button.dart';
-import '../../configs/palette.dart';
+import '../../../components/buttons/dooadex_button.dart';
+import '../../../configs/palette.dart';
 
-class ButtonView extends StatelessWidget {
-  const ButtonView({Key? key}) : super(key: key);
+class ButtonSamplesView extends StatelessWidget {
+  const ButtonSamplesView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +15,8 @@ class ButtonView extends StatelessWidget {
           child: const Text(
             "Convex Button",
           ),
-          onPressedChild: Text(
+          onPressedChild: const Text(
             "Convex Button",
-            style: const TextStyle().copyWith(color: Colors.white),
           ),
         ),
         DooadexButton.elevated(
@@ -60,7 +59,7 @@ class ButtonView extends StatelessWidget {
         ),
         DooadexButton.fab(
           onPressed: () {},
-          backgroundColor: DooadexColor.tonalGreen,
+          backgroundColor: DooadexColor.ashGray,
           child: const Icon(
             Icons.send,
             color: Colors.black87,
@@ -71,7 +70,7 @@ class ButtonView extends StatelessWidget {
         ),
         DooadexButton.expandedFAB(
           onPressed: () {},
-          backgroundColor: DooadexColor.tonalGreen,
+          backgroundColor: DooadexColor.ashGray,
           icon: const Icon(
             Icons.send,
             color: Colors.black87,

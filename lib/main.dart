@@ -1,14 +1,8 @@
-import 'package:dooadex_flutter_skeleton/constants/route_contants.dart';
-import 'package:dooadex_flutter_skeleton/screens/button_samples_screen.dart';
-import 'package:dooadex_flutter_skeleton/screens/home_screen.dart';
-import 'package:dooadex_flutter_skeleton/screens/root_screen.dart';
 import 'package:dooadex_flutter_skeleton/services/nevigation/router.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import 'presentation/view_models/kakao_user_view_model.dart';
-import 'presentation/view_models/user_view_model.dart';
+import 'presentation/view_models/user/user_view_models.dart';
 import 'services/kakao_sdk/kakao_sdk.dart';
 
 void main() {
@@ -32,9 +26,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routeInformationParser: DooadexRouter.router.routeInformationParser,
         routerDelegate: DooadexRouter.router.routerDelegate,
-
-        // routeInformationParser: _router.routeInformationParser,
-        // routerDelegate: _router.routerDelegate,
       ),
     );
   }

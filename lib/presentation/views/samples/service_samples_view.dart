@@ -1,17 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dooadex_flutter_skeleton/components/buttons/dooadex_button.dart';
 import 'package:dooadex_flutter_skeleton/configs/palette.dart';
-import 'package:dooadex_flutter_skeleton/constants/app_constants.dart';
-import 'package:dooadex_flutter_skeleton/presentation/view_models/kakao_user_view_model.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/location_view_model.dart';
-import 'package:dooadex_flutter_skeleton/presentation/view_models/user_view_model.dart';
-import 'package:dooadex_flutter_skeleton/utilities/logger.dart';
+import 'package:dooadex_flutter_skeleton/presentation/view_models/user/user_view_models.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/error/error_message_handler.dart';
-import '../../services/native_api/local_notification.dart';
+import '../../../constants/dooadex_constants.dart';
+import '../../../services/error/error_message_handler.dart';
+import '../../../services/native_api/local_notification.dart';
 
 class ServiceSamplesView extends StatelessWidget {
   const ServiceSamplesView({Key? key}) : super(key: key);
@@ -75,7 +73,6 @@ class ServiceSamplesView extends StatelessWidget {
                     textStyle: notoSansRegular16.copyWith(color: Colors.white),
                     color: DooadexColor.red,
                     child: const Text("Server API"),
-                    size: Size(unitWidth60, unitHeight48),
                   ),
                   SizedBox(width: unitWidth8),
                   Column(
@@ -101,7 +98,6 @@ class ServiceSamplesView extends StatelessWidget {
               textStyle: notoSansRegular16.copyWith(color: Colors.white),
               color: DooadexColor.red,
               child: const Text("Error Service"),
-              size: Size(unitWidth60, unitHeight48),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: unitHeight4),

@@ -142,8 +142,8 @@ class _ConvexButton extends DooadexButton {
                   height: size?.height,
                   decoration: BoxDecoration(
                     color: _hasBeenPressed == false
-                        ? color ?? DooadexColor.tonalGreen
-                        : tappedColor ?? DooadexColor.green,
+                        ? color ?? DooadexColor.ashGray
+                        : tappedColor ?? DooadexColor.artichoke,
                     borderRadius: BorderRadius.circular(circular ?? 4.0),
                   ),
                   child: Padding(
@@ -233,7 +233,7 @@ class _FilledTonalButton extends DooadexButton {
             child: child,
             style: OutlinedButton.styleFrom(
               minimumSize: size,
-              backgroundColor: color ?? DooadexColor.tonalGreen,
+              backgroundColor: color ?? DooadexColor.ashGray,
               primary: textColor ?? Colors.black87,
               textStyle: textStyle,
               padding: padding,
