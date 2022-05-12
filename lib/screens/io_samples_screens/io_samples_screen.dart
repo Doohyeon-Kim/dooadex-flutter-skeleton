@@ -16,9 +16,9 @@ class IoSamplesScreen extends StatelessWidget {
         DooadexButton.elevated(
           onPressed: () {
             GoRouter.of(context)
-                .pushNamed(DooadexRoute.name.textFormFieldSamples);
+                .pushNamed(DooadexRoute.name.textFieldSamples);
           },
-          child: const Text("TextFormField Samples"),
+          child: const Text("TextField Samples"),
           color: DooadexColor.blue,
         ),
       ],

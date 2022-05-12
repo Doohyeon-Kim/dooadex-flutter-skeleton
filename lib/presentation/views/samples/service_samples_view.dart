@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dooadex_flutter_skeleton/components/buttons/dooadex_button.dart';
 import 'package:dooadex_flutter_skeleton/configs/palette.dart';
-import 'package:dooadex_flutter_skeleton/presentation/view_models/location_view_model.dart';
+import 'package:dooadex_flutter_skeleton/presentation/view_models/location/location_view_model.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/user/user_view_models.dart';
 
 import 'package:flutter/material.dart';

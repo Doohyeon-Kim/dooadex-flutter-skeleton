@@ -12,11 +12,12 @@ class DooadexColor {
   static Color artichoke = const Color(0xFF83977B);
   static Color ashGray = const Color(0xFFB3BFAE);
   static Color yellow = const Color(0xFFDDD000);
+  static Color bilobaFlower = const Color(0xFFAE99DE);
 }
 
 /// typo
-class Typo {
-  Typo._();
+class DooadexTypo {
+  DooadexTypo._();
 
   static final TextStyle largeTitle = GoogleFonts.notoSans(
       textStyle: const TextStyle(fontSize: 33, fontWeight: FontWeight.w400));

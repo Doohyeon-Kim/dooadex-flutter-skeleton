@@ -77,7 +77,7 @@ class ButtonSamplesView extends StatelessWidget {
           ),
           label: Text(
             "Expanded FAB",
-            style: Typo.caption.copyWith(color: Colors.black87),
+            style: DooadexTypo.caption.copyWith(color: Colors.black87),
           ),
         ),
       ],

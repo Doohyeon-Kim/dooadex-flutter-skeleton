@@ -71,13 +71,14 @@ class DooadexButton extends StatefulWidget {
       double? circular,
       EdgeInsetsGeometry? padding}) = _TextButton;
 
-  factory DooadexButton.destructiveText({
-    Key? key,
-    required VoidCallback onPressed,
-    required String text,
-    Color? color,
-    TextStyle? textStyle,
-  }) = _DestructiveTextButton;
+  factory DooadexButton.destructiveText(
+      {Key? key,
+      required VoidCallback onPressed,
+      required String text,
+      Size? size,
+      Color? color,
+      TextStyle? textStyle,
+      EdgeInsetsGeometry? padding}) = _DestructiveTextButton;
 
   factory DooadexButton.icon({
     required VoidCallback onPressed,
@@ -305,20 +306,26 @@ class _TextButton extends DooadexButton {
 }
 
 class _DestructiveTextButton extends DooadexButton {
-  _DestructiveTextButton({
-    Key? key,
-    required VoidCallback onPressed,
-    required String text,
-    Color? color,
-    TextStyle? textStyle,
-  }) : super(
+  _DestructiveTextButton(
+      {Key? key,
+      required VoidCallback onPressed,
+      required String text,
+      Size? size,
+      Color? color,
+      TextStyle? textStyle,
+      EdgeInsetsGeometry? padding})
+      : super(
           key: key,
           buttonWidget: TextButton(
             onPressed: onPressed,
+            style: TextButton.styleFrom(
+              minimumSize: size,
+              padding: padding,
+            ),
             child: Text(
               text,
               style: textStyle ??
-                  Typo.body.copyWith(
+                  DooadexTypo.body.copyWith(
                     color: color ?? DooadexColor.red,
                   ),
             ),
