@@ -1,4 +1,5 @@
 import 'package:dooadex_flutter_skeleton/components/text_fields/dooadex_textfield.dart';
+import 'package:dooadex_flutter_skeleton/components/text_fields/underline_text_field.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/text/underline_text_field_test_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,7 @@ class UnderlineTextFieldTestView extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            DooadexTextField.underline(
+            UnderlineTextField(
               hintText: "hint text",
               textEditingController:
                   underlineTextFieldTestViewModel.textFieldController01.textEditingController,
@@ -27,7 +28,7 @@ class UnderlineTextFieldTestView extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            DooadexTextField.underlineWithSuffix(
+            UnderlineTextField.suffix(
               onPressed: () {
                 underlineTextFieldTestViewModel.setText();
               },
