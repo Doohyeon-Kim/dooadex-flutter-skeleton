@@ -9,4 +9,7 @@ class ExceptionConstants {
   static const String timeoutError = 'TIMEOUT_ERROR';
   static const String unknownError = 'UNKNOWN_ERROR';
   static const String unstableNetwork = 'UNSTABLE_NETWORK';
+
+  static const String invalidFormat = 'INVALID_FORMAT';
+
 }

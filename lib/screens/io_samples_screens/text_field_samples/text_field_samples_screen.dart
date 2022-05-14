@@ -1,5 +1,4 @@
 import 'package:dooadex_flutter_skeleton/constants/dooadex_constants.dart';
-import 'package:dooadex_flutter_skeleton/presentation/views/samples/io/text_field/underline_text_field_test_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -32,7 +31,16 @@ class TextFieldSamplesScreen extends StatelessWidget {
                 GoRouter.of(context)
                     .pushNamed(DooadexRoute.name.underlineTextFieldSamples);
               },
+              color: DooadexColor.blue,
               child: const Text("Underline Text Field"),
+            ),
+            DooadexButton.elevated(
+              onPressed: () {
+                GoRouter.of(context)
+                    .pushNamed(DooadexRoute.name.outlineTextFieldSamples);
+              },
+              color: DooadexColor.blue,
+              child: const Text("Outline Text Field"),
             ),
           ],
         ),

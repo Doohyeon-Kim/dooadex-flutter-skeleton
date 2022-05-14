@@ -112,29 +112,28 @@ class _DooadexButtonState extends State<DooadexButton> {
 }
 
 class _ConvexButton extends DooadexButton {
-  static bool _hasBeenPressed = false;
-
-  _ConvexButton(
-      {Key? key,
-      required VoidCallback onPressed,
-      Widget? child,
-      Widget? onPressedChild,
-      Size? size,
-      Color? color,
-      Color? tappedColor,
-      double? circular,
-      EdgeInsetsGeometry? padding})
-      : super(
+  _ConvexButton({
+    Key? key,
+    required VoidCallback onPressed,
+    Widget? child,
+    Widget? onPressedChild,
+    Size? size,
+    Color? color,
+    Color? tappedColor,
+    double? circular,
+    EdgeInsetsGeometry? padding,
+    bool hasBeenPressed = false,
+  }) : super(
           key: key,
           buttonWidget: StatefulBuilder(
             builder: (context, state) {
               return GestureDetector(
                 onTapDown: (TapDownDetails tapped) {
-                  _hasBeenPressed = true;
+                  hasBeenPressed = true;
                   state(() {});
                 },
                 onTapUp: (TapUpDetails tapped) {
-                  _hasBeenPressed = false;
+                  hasBeenPressed = false;
                   state(() {});
                   onPressed.call();
                 },
@@ -142,14 +141,14 @@ class _ConvexButton extends DooadexButton {
                   width: size?.width,
                   height: size?.height,
                   decoration: BoxDecoration(
-                    color: _hasBeenPressed == false
+                    color: hasBeenPressed == false
                         ? color ?? DooadexColor.ashGray
                         : tappedColor ?? DooadexColor.artichoke,
                     borderRadius: BorderRadius.circular(circular ?? 4.0),
                   ),
                   child: Padding(
                     padding: padding ?? const EdgeInsets.all(12.0),
-                    child: _hasBeenPressed == false ? child : onPressedChild,
+                    child: hasBeenPressed == false ? child : onPressedChild,
                   ),
                 ),
               );

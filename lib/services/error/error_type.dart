@@ -2,6 +2,7 @@ import '../../constants/exception_constants.dart';
 
 class ErrorType {
   // Client Error
+  static String invalidFormat = ExceptionConstants.invalidFormat;
 
   // Server Error;
   static String badRequest = ExceptionConstants.badRequest; // 400

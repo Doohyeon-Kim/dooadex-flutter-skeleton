@@ -28,9 +28,9 @@ class _RootScreenState extends State<RootScreen> {
 
   appInitialize() async {
     maxWidth =
-        MediaQueryData.fromWindow(WidgetsBinding.instance!.window).size.width;
+        MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
     maxHeight =
-        MediaQueryData.fromWindow(WidgetsBinding.instance!.window).size.height;
+        MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.height;
 
     unitWidth4 = maxWidth / 93.75;
     unitHeight4 = maxHeight / 203;
@@ -68,9 +68,9 @@ class _RootScreenState extends State<RootScreen> {
     unitHeight60 = unitHeight4 * 15;
 
     topSafeAreaPadding =
-        MediaQueryData.fromWindow(WidgetsBinding.instance!.window).padding.top;
+        MediaQueryData.fromWindow(WidgetsBinding.instance.window).padding.top;
     bottomSafeAreaPadding =
-        MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
+        MediaQueryData.fromWindow(WidgetsBinding.instance.window)
             .padding
             .bottom;
     safeAreaPadding = topSafeAreaPadding + bottomSafeAreaPadding;

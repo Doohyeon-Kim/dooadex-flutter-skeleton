@@ -1,5 +1,6 @@
 import 'package:dooadex_flutter_skeleton/constants/dooadex_constants.dart';
 import 'package:dooadex_flutter_skeleton/screens/dooadex_screens.dart';
+import 'package:dooadex_flutter_skeleton/screens/io_samples_screens/text_field_samples/outline_text_field_samples_screen.dart';
 import 'package:dooadex_flutter_skeleton/screens/io_samples_screens/text_field_samples/underline_text_field_samples_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -58,6 +59,15 @@ class DooadexRouter {
                   return MaterialPage(
                     key: state.pageKey,
                     child: const UnderlineTextFieldSamplesScreen(),
+                  );
+                },
+              ),  GoRoute(
+                path: DooadexRoute.path.outlineTextFieldSamples,
+                name: DooadexRoute.name.outlineTextFieldSamples,
+                pageBuilder: (context, state) {
+                  return MaterialPage(
+                    key: state.pageKey,
+                    child: const OutlineTextFieldSamplesScreen(),
                   );
                 },
               ),

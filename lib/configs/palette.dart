@@ -18,7 +18,6 @@ class DooadexColor {
 /// typo
 class DooadexTypo {
   DooadexTypo._();
-
   static final TextStyle largeTitle = GoogleFonts.notoSans(
       textStyle: const TextStyle(fontSize: 33, fontWeight: FontWeight.w400));
   static final TextStyle title1 = GoogleFonts.notoSans(
