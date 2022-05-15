@@ -9,20 +9,32 @@ class BirthdayDateTextFieldView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<BirthdayDateTextFieldViewModel>(
-            create: (context) => BirthdayDateTextFieldViewModel()),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        DateTextField.yyyymmdd(
+          textEditingController: context
+              .read<BirthdayDateTextFieldViewModel>()
+              .textFieldController
+              .textEditingController,
+          errorStyle: DooadexTypo.caption.copyWith(height: 0),
+          errorText:
+              context.watch<BirthdayDateTextFieldViewModel>().errorOccurred ==
+                      true
+                  ? ""
+                  : null,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 6.0),
+          child: SizedBox(
+            height: 18,
+            child: Text(
+              context.watch<BirthdayDateTextFieldViewModel>().errorText ?? "",
+              style: DooadexTypo.caption.copyWith(color: DooadexColor.red),
+            ),
+          ),
+        ),
       ],
-      child: Consumer<BirthdayDateTextFieldViewModel>(
-          builder: (context, birthdayDateTextFieldViewModel, child) {
-        return DateTextField.yyyymmdd(
-          textEditingController: birthdayDateTextFieldViewModel
-              .textFieldController.textEditingController,
-          errorText: birthdayDateTextFieldViewModel.errorText,
-          errorStyle: DooadexTypo.caption,
-        );
-      }),
     );
   }
 }

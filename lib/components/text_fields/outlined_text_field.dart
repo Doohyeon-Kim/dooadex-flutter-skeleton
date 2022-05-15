@@ -49,10 +49,10 @@ class OutlineTextField extends DooadexTextField {
           textStyle: textStyle,
           suffix: suffix,
           maxLength: maxLength,
-          maxLines: maxLines,
+          maxLines: maxLines ?? 1,
           keyboardType: keyboardType,
           textDirection: textDirection,
-    textAlign: textAlign,
+          textAlign: textAlign,
         );
 
   factory OutlineTextField.suffix({
@@ -76,6 +76,26 @@ class OutlineTextField extends DooadexTextField {
     TextAlign? textAlign,
     EdgeInsetsGeometry? contentPadding,
   }) = _OutlineSuffixTextField;
+
+  factory OutlineTextField.singleChar({
+    required TextEditingController textEditingController,
+    ValueChanged<String>? onChanged,
+    FocusNode? focusNode,
+    double? width,
+    String? hintText,
+    TextStyle? textStyle,
+    TextStyle? hintStyle,
+    int? maxLength,
+    int? maxLines,
+    TextInputType? keyboardType,
+    String? errorText,
+    InputBorder? errorBorder,
+    String? counterText,
+    TextDirection? textDirection,
+    TextStyle? errorStyle,
+    TextAlign? textAlign,
+    EdgeInsetsGeometry? contentPadding,
+  }) = _OutlineSingleTextField;
 }
 
 class _OutlineSuffixTextField extends OutlineTextField {
@@ -107,16 +127,15 @@ class _OutlineSuffixTextField extends OutlineTextField {
           focusNode: focusNode,
           width: width,
           maxLength: maxLength,
-          maxLines: maxLines,
+          maxLines: maxLines ?? 1,
           keyboardType: keyboardType,
-          hintText: hintText,
-          textStyle: textStyle,
           textDirection: textDirection,
-    textAlign: textAlign,
+          textAlign: textAlign,
           inputDecoration: InputDecoration(
             border: const OutlineInputBorder(),
             hintText: hintText,
-            hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+            hintStyle: hintStyle ??
+                DooadexTypo.headline.copyWith(color: DooadexColor.gray),
             focusedBorder: const OutlineInputBorder(),
             counterText: counterText ?? "",
             contentPadding: contentPadding,
@@ -133,6 +152,53 @@ class _OutlineSuffixTextField extends OutlineTextField {
                     padding: EdgeInsets.zero,
                   ),
                 ),
+            isDense: true,
+            errorText: errorText,
+            errorBorder: errorBorder,
+            errorStyle: errorStyle,
+          ),
+        );
+}
+
+class _OutlineSingleTextField extends OutlineTextField {
+  _OutlineSingleTextField({
+    key,
+    required TextEditingController textEditingController,
+    ValueChanged<String>? onChanged,
+    FocusNode? focusNode,
+    double? width,
+    String? hintText,
+    TextStyle? textStyle,
+    TextStyle? hintStyle,
+    int? maxLength,
+    int? maxLines,
+    TextInputType? keyboardType,
+    String? errorText,
+    InputBorder? errorBorder,
+    String? counterText,
+    TextStyle? errorStyle,
+    TextDirection? textDirection,
+    TextAlign? textAlign,
+    EdgeInsetsGeometry? contentPadding,
+  }) : super(
+          key: key,
+          textEditingController: textEditingController,
+          onChanged: onChanged,
+          focusNode: focusNode,
+          width: width ?? 40,
+          maxLength: maxLength ?? 1,
+          maxLines: maxLines ?? 1,
+          keyboardType: keyboardType,
+          textDirection: textDirection,
+          textAlign: textAlign ?? TextAlign.center,
+          inputDecoration: InputDecoration(
+            border: const OutlineInputBorder(),
+            hintText: hintText,
+            hintStyle: hintStyle ??
+                DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+            focusedBorder: const OutlineInputBorder(),
+            counterText: counterText ?? "",
+            contentPadding: contentPadding,
             isDense: true,
             errorText: errorText,
             errorBorder: errorBorder,

@@ -5,6 +5,7 @@ import 'package:dooadex_flutter_skeleton/utilities/date_format_handler.dart';
 class BirthdayDateTextFieldViewModel extends BaseViewModel {
   late TextFieldController textFieldController;
   String? errorText;
+  bool errorOccurred = false;
 
   BirthdayDateTextFieldViewModel() {
     textFieldController = TextFieldController();
@@ -33,8 +34,10 @@ class BirthdayDateTextFieldViewModel extends BaseViewModel {
     try {
       DateFormatHandler.checkCurrentDateHasPassed(parse());
       errorText = null;
+      errorOccurred = false;
       return true;
     } catch (e) {
+      errorOccurred = true;
       errorText = e.toString();
       return false;
     }
