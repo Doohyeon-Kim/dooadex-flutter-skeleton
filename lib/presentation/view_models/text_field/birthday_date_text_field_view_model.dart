@@ -1,44 +1,37 @@
 import 'package:dooadex_flutter_skeleton/presentation/view_models/base/base_view_model.dart';
-import 'package:dooadex_flutter_skeleton/utilities/controller/text/text_field_controller.dart';
-import 'package:dooadex_flutter_skeleton/utilities/date_format_handler.dart';
+import 'package:dooadex_flutter_skeleton/utilities/controller/text_field/text_field_controller.dart';
+import 'package:dooadex_flutter_skeleton/utilities/format_handler/parser.dart';
+import 'package:dooadex_flutter_skeleton/utilities/validator/validator.dart';
 
 class BirthdayDateTextFieldViewModel extends BaseViewModel {
   late TextFieldController textFieldController;
-  String? errorText;
-  bool errorOccurred = false;
 
   BirthdayDateTextFieldViewModel() {
     textFieldController = TextFieldController();
     textFieldController.textEditingController.addListener(() {
       if (textFieldController.isFilled(
-          textLength: textFieldController.textEditingController.text.length,
-          maxLength: 8)) {
-        isValid();
+          textLength: textFieldController.textEditingController.text.length, maxLength: 8)) {
+        textFieldController.textFieldError.isOccurred = !isValid();
       } else {
-        errorText = null;
+        textFieldController.textFieldError.message = null;
+        textFieldController.textFieldError.isOccurred = false;
       }
       super.rebuild();
     });
   }
 
-  DateTime parse() {
-    try {
-      return DateFormatHandler.parseToDateTime(
-          stringDateTime: textFieldController.textEditingController.text);
-    } catch (e) {
-      throw ("잘못된 형식입니다.");
-    }
-  }
-
   bool isValid() {
     try {
-      DateFormatHandler.checkCurrentDateHasPassed(parse());
-      errorText = null;
-      errorOccurred = false;
+      DateTime parsedDate = Parser.toBirthDateTime(stringDateTime: textFieldController.textEditingController.text);
+      if (Validator.validateBirthDate(birthDate: parsedDate) == false) {
+        textFieldController.textFieldError.message = "Future date is not Available.";
+        return false;
+      }
+      textFieldController.textFieldError.message = null;
+      textFieldController.textFieldError.isOccurred = false;
       return true;
     } catch (e) {
-      errorOccurred = true;
-      errorText = e.toString();
+      textFieldController.textFieldError.message = e.toString();
       return false;
     }
   }

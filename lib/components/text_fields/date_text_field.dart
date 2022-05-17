@@ -2,7 +2,7 @@ import 'package:dooadex_flutter_skeleton/components/text_fields/underline_text_f
 import 'package:dooadex_flutter_skeleton/configs/palette.dart';
 import 'package:flutter/material.dart';
 
-import 'outlined_text_field.dart';
+import 'outline_text_field.dart';
 
 
 class DateTextField extends StatefulWidget {
@@ -42,6 +42,7 @@ class _DateTextFieldDD extends DateTextField {
     String? errorText,
     TextStyle? errorStyle,
     double? width,
+    InputBorder? errorBorder,
   }) : super(
           textFieldWidget: UnderlineTextField.suffixIcon(
             textEditingController: textEditingController,
@@ -60,6 +61,7 @@ class _DateTextFieldDD extends DateTextField {
             textStyle: DooadexTypo.largeTitle,
             errorText: errorText,
             errorStyle: errorStyle,
+            errorBorder: errorBorder,
           ),
         );
 }
@@ -70,6 +72,7 @@ class _DateTextFieldYYYYMMDD extends DateTextField {
     String? errorText,
     TextStyle? errorStyle,
     double? width,
+    InputBorder? errorBorder,
   }) : super(
     textFieldWidget: OutlineTextField(
       textEditingController: textEditingController,
@@ -85,6 +88,7 @@ class _DateTextFieldYYYYMMDD extends DateTextField {
       // hintStyle: ,
       textDirection: TextDirection.ltr,
       textAlign: TextAlign.center,
+      errorBorder: errorBorder,
     ),
   );
 }

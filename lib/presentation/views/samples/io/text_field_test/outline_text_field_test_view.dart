@@ -1,11 +1,10 @@
-import 'package:dooadex_flutter_skeleton/components/text_fields/outlined_text_field.dart';
-import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field/birthday_date_text_field_view_model.dart';
-import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field/gender_number_text_field_view_model.dart';
+import 'package:dooadex_flutter_skeleton/components/text_fields/outline_text_field.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field_test/outline_text_field_test_view_model.dart';
-import 'package:dooadex_flutter_skeleton/presentation/views/text_fields/birthday_date_text_field_view.dart';
-import 'package:dooadex_flutter_skeleton/presentation/views/text_fields/gender_number_text_field_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../text_fields/kor_id_num_text_field_view.dart';
 
 class OutlineTextFieldTestView extends StatelessWidget {
   const OutlineTextFieldTestView({Key? key}) : super(key: key);
@@ -14,18 +13,15 @@ class OutlineTextFieldTestView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<OutlineTextFieldTestViewModel>(
-            create: (context) => OutlineTextFieldTestViewModel()),
+        ChangeNotifierProvider<OutlineTextFieldTestViewModel>(create: (context) => OutlineTextFieldTestViewModel()),
       ],
-      child: Consumer<OutlineTextFieldTestViewModel>(
-          builder: (context, outlineTextFieldTestViewModel, child) {
+      child: Consumer<OutlineTextFieldTestViewModel>(builder: (context, outlineTextFieldTestViewModel, child) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             OutlineTextField(
               hintText: "hint text_field_test",
-              textEditingController: outlineTextFieldTestViewModel
-                  .textFieldController01.textEditingController,
+              textEditingController: outlineTextFieldTestViewModel.textFieldController01.textEditingController,
             ),
             Text(outlineTextFieldTestViewModel.textFieldController01.getText()),
             const SizedBox(
@@ -36,45 +32,14 @@ class OutlineTextFieldTestView extends StatelessWidget {
                 outlineTextFieldTestViewModel.setText();
               },
               hintText: "hint text_field_test",
-              textEditingController: outlineTextFieldTestViewModel
-                  .textFieldController02.textEditingController,
-              focusNode:
-                  outlineTextFieldTestViewModel.textFieldController02.focusNode,
+              textEditingController: outlineTextFieldTestViewModel.textFieldController02.textEditingController,
+              focusNode: outlineTextFieldTestViewModel.textFieldController02.focusNode,
             ),
             Text(outlineTextFieldTestViewModel.text ?? ""),
             const SizedBox(
               height: 16,
             ),
-            MultiProvider(
-              providers: [
-                ChangeNotifierProvider<BirthdayDateTextFieldViewModel>(
-                    create: (context) => BirthdayDateTextFieldViewModel()),
-                ChangeNotifierProvider<GenderNumberTextFieldViewModel>(
-                    create: (context) => GenderNumberTextFieldViewModel()),
-              ],
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const BirthdayDateTextFieldView(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Column(
-                      children: [
-                        Container(
-                          color: Colors.black,
-                          width: 6,
-                          height: 2,
-                        ),
-                        const SizedBox(
-                          height: 24,
-                        )
-                      ],
-                    ),
-                  ),
-                  const GenderNumberTextFieldView(),
-                ],
-              ),
-            ),
+            const KorIdNumTextFieldView(),
 
             // DateTextField.yyyymmdd(
             //   textEditingController: outlineTextFieldTestViewModel

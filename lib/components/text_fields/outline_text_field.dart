@@ -26,15 +26,17 @@ class OutlineTextField extends DooadexTextField {
     TextDirection? textDirection,
     TextAlign? textAlign,
     EdgeInsetsGeometry? contentPadding,
+    InputBorder? border,
+    InputBorder? focusedBorder,
   }) : super(
           key: key,
           inputDecoration: inputDecoration ??
               InputDecoration(
-                border: const OutlineInputBorder(),
+                border: border ?? const OutlineInputBorder(),
                 hintText: hintText,
                 hintStyle: hintStyle ??
                     DooadexTypo.headline.copyWith(color: DooadexColor.gray),
-                focusedBorder: const OutlineInputBorder(),
+                focusedBorder: focusedBorder ?? const OutlineInputBorder(),
                 counterText: counterText ?? "",
                 isDense: true,
                 errorText: errorText,
@@ -75,6 +77,8 @@ class OutlineTextField extends DooadexTextField {
     TextStyle? errorStyle,
     TextAlign? textAlign,
     EdgeInsetsGeometry? contentPadding,
+    InputBorder? border,
+    InputBorder? focusedBorder,
   }) = _OutlineSuffixTextField;
 
   factory OutlineTextField.singleChar({
@@ -95,6 +99,8 @@ class OutlineTextField extends DooadexTextField {
     TextStyle? errorStyle,
     TextAlign? textAlign,
     EdgeInsetsGeometry? contentPadding,
+    InputBorder? border,
+    InputBorder? focusedBorder,
   }) = _OutlineSingleTextField;
 }
 
@@ -120,6 +126,8 @@ class _OutlineSuffixTextField extends OutlineTextField {
     TextDirection? textDirection,
     TextAlign? textAlign,
     EdgeInsetsGeometry? contentPadding,
+    InputBorder? border,
+    InputBorder? focusedBorder,
   }) : super(
           key: key,
           textEditingController: textEditingController,
@@ -132,11 +140,11 @@ class _OutlineSuffixTextField extends OutlineTextField {
           textDirection: textDirection,
           textAlign: textAlign,
           inputDecoration: InputDecoration(
-            border: const OutlineInputBorder(),
+            border: border ?? const OutlineInputBorder(),
             hintText: hintText,
             hintStyle: hintStyle ??
                 DooadexTypo.headline.copyWith(color: DooadexColor.gray),
-            focusedBorder: const OutlineInputBorder(),
+            focusedBorder: focusedBorder ?? const OutlineInputBorder(),
             counterText: counterText ?? "",
             contentPadding: contentPadding,
             suffix: suffix ??
@@ -180,6 +188,8 @@ class _OutlineSingleTextField extends OutlineTextField {
     TextDirection? textDirection,
     TextAlign? textAlign,
     EdgeInsetsGeometry? contentPadding,
+    InputBorder? border,
+    InputBorder? focusedBorder,
   }) : super(
           key: key,
           textEditingController: textEditingController,
@@ -192,11 +202,11 @@ class _OutlineSingleTextField extends OutlineTextField {
           textDirection: textDirection,
           textAlign: textAlign ?? TextAlign.center,
           inputDecoration: InputDecoration(
-            border: const OutlineInputBorder(),
+            border: border ?? const OutlineInputBorder(),
             hintText: hintText,
             hintStyle: hintStyle ??
                 DooadexTypo.headline.copyWith(color: DooadexColor.gray),
-            focusedBorder: const OutlineInputBorder(),
+            focusedBorder: focusedBorder ?? const OutlineInputBorder(),
             counterText: counterText ?? "",
             contentPadding: contentPadding,
             isDense: true,

@@ -1,4 +1,4 @@
-import 'package:dooadex_flutter_skeleton/utilities/controller/text/text_field_controller.dart';
+import 'package:dooadex_flutter_skeleton/utilities/controller/text_field/text_field_controller.dart';
 import '../base/base_view_model.dart';
 
 class UnderlineTextFieldTestViewModel extends BaseViewModel {

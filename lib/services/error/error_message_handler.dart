@@ -1,3 +1,4 @@
+import 'package:dooadex_flutter_skeleton/components/dialogs/error_popup_dialog.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/buttons/dooadex_button.dart';
@@ -38,27 +39,10 @@ class ErrorMessageHandler {
       barrierDismissible: false,
       // false = user must tap button, true = tap outside dialog
       builder: (BuildContext dialogContext) {
-        return AlertDialog(
-          title: Text('${_errorMessage?.errorTitle ?? "에러"} '),
-          content: Text(
-            '${_errorMessage?.errorMsg ?? "알 수 없는 오류가 발생했습니다.\n잠시 후 다시 시도해주세요."} ',
-            style: DooadexTypo.body,
-          ),
-          actions: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                DooadexButton.destructiveText(
-                    onPressed: () {
-                      flushErrorMessage();
-                      Navigator.of(dialogContext).pop(); // Dismiss alert dialog
-                    },
-                    text: "확인"),
-              ],
-            ),
-          ],
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10))),
+        return ErrorPopupDialog(
+          errorTitle: _errorMessage?.errorTitle,
+          errorMsg: _errorMessage?.errorMsg,
+          dialogContext: dialogContext,
         );
       },
     );
