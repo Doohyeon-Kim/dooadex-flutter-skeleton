@@ -3,8 +3,5 @@ import 'parser.dart';
 
 class FormatHandler extends BaseFormatHandler {
   FormatHandler._();
-
-  Parser parser = Parser();
-
-
+  static Parser parser = Parser();
 }

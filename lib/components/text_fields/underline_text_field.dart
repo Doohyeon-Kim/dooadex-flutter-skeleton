@@ -1,4 +1,3 @@
-import 'package:dooadex_flutter_skeleton/components/buttons/dooadex_button.dart';
 import 'package:dooadex_flutter_skeleton/components/text_fields/dooadex_text_field.dart';
 import 'package:dooadex_flutter_skeleton/configs/palette.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +51,6 @@ class UnderlineTextField extends DooadexTextField {
   factory UnderlineTextField.suffix({
     required TextEditingController textEditingController,
     ValueChanged<String>? onChanged,
-    VoidCallback onPressed,
     FocusNode? focusNode,
     double? width,
     String? hintText,
@@ -72,7 +70,6 @@ class UnderlineTextField extends DooadexTextField {
   factory UnderlineTextField.suffixIcon({
     required TextEditingController textEditingController,
     ValueChanged<String>? onChanged,
-    VoidCallback onPressed,
     FocusNode? focusNode,
     double? width,
     String? hintText,
@@ -95,7 +92,6 @@ class _UnderlineSuffixTextField extends UnderlineTextField {
     key,
     required TextEditingController textEditingController,
     ValueChanged<String>? onChanged,
-    VoidCallback? onPressed,
     FocusNode? focusNode,
     double? width,
     String? hintText,
@@ -126,13 +122,7 @@ class _UnderlineSuffixTextField extends UnderlineTextField {
             hintText: hintText,
             hintStyle: DooadexTypo.headline.copyWith(color: DooadexColor.gray),
             focusedBorder: const UnderlineInputBorder(),
-            suffix: suffix ??
-                DooadexButton.destructiveText(
-                  onPressed: onPressed ?? () {},
-                  text: "add",
-                  textStyle: DooadexTypo.subhead
-                      .copyWith(color: DooadexColor.bilobaFlower),
-                ),
+            suffix: suffix ?? const Text("suffix"),
             isDense: true,
             contentPadding: contentPadding ?? EdgeInsets.zero,
             counterText: counterText ?? "",
@@ -149,7 +139,6 @@ class _UnderlineSuffixIconTextField extends UnderlineTextField {
     key,
     required TextEditingController textEditingController,
     ValueChanged<String>? onChanged,
-    VoidCallback? onPressed,
     FocusNode? focusNode,
     double? width,
     String? hintText,
@@ -180,13 +169,8 @@ class _UnderlineSuffixIconTextField extends UnderlineTextField {
             hintText: hintText,
             hintStyle: DooadexTypo.headline.copyWith(color: DooadexColor.gray),
             focusedBorder: const UnderlineInputBorder(),
-            suffixIcon: suffix ??
-                DooadexButton.destructiveText(
-                  onPressed: onPressed ?? () {},
-                  text: "add",
-                  textStyle: DooadexTypo.subhead
-                      .copyWith(color: DooadexColor.bilobaFlower),
-                ),
+            suffixIcon: suffix ?? const Text("suffix"),
+
             isDense: true,
             contentPadding: contentPadding ?? EdgeInsets.zero,
             counterText: counterText ?? "",

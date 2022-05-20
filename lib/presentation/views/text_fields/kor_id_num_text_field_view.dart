@@ -39,7 +39,7 @@ class KorIdNumTextFieldView extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 8),
               child: SizedBox(
                 height: 60,
                 child: Column(

@@ -1,10 +1,14 @@
+import 'package:dooadex_flutter_skeleton/components/buttons/dooadex_button.dart';
 import 'package:dooadex_flutter_skeleton/components/text_fields/outline_text_field.dart';
+import 'package:dooadex_flutter_skeleton/configs/palette.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field_test/outline_text_field_test_view_model.dart';
+import 'package:dooadex_flutter_skeleton/presentation/views/text_fields/nickname_text_field_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../text_fields/kor_id_num_text_field_view.dart';
+import '../../../text_fields/phone_number_text_field_view.dart';
 
 class OutlineTextFieldTestView extends StatelessWidget {
   const OutlineTextFieldTestView({Key? key}) : super(key: key);
@@ -28,9 +32,19 @@ class OutlineTextFieldTestView extends StatelessWidget {
               height: 16,
             ),
             OutlineTextField.suffix(
-              onPressed: () {
-                outlineTextFieldTestViewModel.setText();
-              },
+              suffix: Container(
+                height: 18,
+                width: 40,
+                alignment: Alignment.center,
+                child: DooadexButton.destructiveText(
+                  onPressed: () {
+                    outlineTextFieldTestViewModel.setText();
+                  },
+                  text: "add",
+                  textStyle: DooadexTypo.subhead.copyWith(color: DooadexColor.bilobaFlower),
+                  padding: EdgeInsets.zero,
+                ),
+              ),
               hintText: "hint text_field_test",
               textEditingController: outlineTextFieldTestViewModel.textFieldController02.textEditingController,
               focusNode: outlineTextFieldTestViewModel.textFieldController02.focusNode,
@@ -40,18 +54,8 @@ class OutlineTextFieldTestView extends StatelessWidget {
               height: 16,
             ),
             const KorIdNumTextFieldView(),
-
-            // DateTextField.yyyymmdd(
-            //   textEditingController: outlineTextFieldTestViewModel
-            //       .textFieldController03.textEditingController,errorText:
-            // outlineTextFieldTestViewModel.inputOverError() == true
-            //     ? "미래를 입력할 순 없습니다."
-            //     : null,
-            //   errorStyle: DooadexTypo.caption,
-            // ),
-            // const SizedBox(
-            //   height: 16,
-            // ),
+            const PhoneNumberTextFieldView(),
+            const NicknameTextFieldView(),
           ],
         );
       }),

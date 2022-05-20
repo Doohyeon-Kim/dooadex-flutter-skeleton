@@ -8,8 +8,7 @@ class GenderNumberTextFieldViewModel extends BaseViewModel {
   GenderNumberTextFieldViewModel() {
     textFieldController = TextFieldController();
     textFieldController.textEditingController.addListener(() {
-      if (textFieldController.isFilled(
-          textLength: textFieldController.textEditingController.text.length, maxLength: 1)) {
+      if (textFieldController.isFilled(maxLength: 1)) {
         textFieldController.textFieldError.isOccurred = !isValid();
       } else {
         textFieldController.textFieldError.message = null;
@@ -20,8 +19,8 @@ class GenderNumberTextFieldViewModel extends BaseViewModel {
   }
 
   bool isValid() {
-    if (Validator.validateGenderNumber(genderNumber: textFieldController.textEditingController.text) == false) {
-      textFieldController.textFieldError.message = "";
+    if (Validator.validateGenderNumber(genderNumber: textFieldController.textEditingController.text) == true) {
+      textFieldController.textFieldError.message = null;
       return true;
     } else {
       textFieldController.textFieldError.message = "Only number 1~4 are available .";

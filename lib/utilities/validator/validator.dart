@@ -11,9 +11,14 @@ class Validator {
 
   static validatePassword() {}
 
+  static validateNickname({required String nickname}) {
+    regExp = RegExp(RegExpPattern.nickname);
+    return regExp.hasMatch(nickname) == true ? true : false;
+  }
+
   static bool validatePhoneNumber({required String phoneNumber}) {
     regExp = RegExp(RegExpPattern.phoneNumber);
-    return regExp.hasMatch(phoneNumber) == false ? true : false;
+    return regExp.hasMatch(phoneNumber) == true ? true : false;
   }
 
   static bool validateBirthDate({required DateTime birthDate}) {
@@ -22,6 +27,6 @@ class Validator {
 
   static bool validateGenderNumber({required String genderNumber}) {
     regExp = RegExp(RegExpPattern.genderNumber);
-    return regExp.hasMatch(genderNumber) == false ? true : false;
+    return regExp.hasMatch(genderNumber) == true ? true : false;
   }
 }

@@ -1,16 +1,15 @@
-import 'package:dooadex_flutter_skeleton/utilities/controller/text_field/text_field_controller.dart';
-import 'package:dooadex_flutter_skeleton/utilities/format_handler/format_handler.dart';
 import 'package:dooadex_flutter_skeleton/utilities/validator/validator.dart';
 
+import '../../../utilities/controller/text_field/text_field_controller.dart';
 import '../base/base_view_model.dart';
 
-class PhoneNumberTextFieldViewModel extends BaseViewModel {
+class NicknameTextFieldViewModel extends BaseViewModel {
   late TextFieldController textFieldController;
 
-  PhoneNumberTextFieldViewModel() {
+  NicknameTextFieldViewModel() {
     textFieldController = TextFieldController();
     textFieldController.textEditingController.addListener(() {
-      if (textFieldController.isFilled(maxLength: 8)) {
+      if (textFieldController.isMinLengthMet(minLength: 1)) {
         textFieldController.textFieldError.isOccurred = !isValid();
       } else {
         textFieldController.textFieldError.isOccurred = false;
@@ -19,16 +18,12 @@ class PhoneNumberTextFieldViewModel extends BaseViewModel {
     });
   }
 
-  String parse() {
-    return FormatHandler.parser.toPhoneNumber(phoneNumber: textFieldController.textEditingController.text);
-  }
-
   bool isValid() {
-    if (Validator.validatePhoneNumber(phoneNumber: parse())) {
+    if (Validator.validateNickname(nickname: textFieldController.textEditingController.text) == true) {
       textFieldController.textFieldError.message = null;
       return true;
     } else {
-      textFieldController.textFieldError.message = "Invalid Format.";
+      textFieldController.textFieldError.message = "Invalid Nickname";
       return false;
     }
   }

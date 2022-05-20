@@ -1,3 +1,5 @@
+import 'package:dooadex_flutter_skeleton/components/buttons/dooadex_button.dart';
+import 'package:dooadex_flutter_skeleton/components/navigation_bars/top_navigation_bar.dart';
 import 'package:dooadex_flutter_skeleton/components/text_fields/date_text_field.dart';
 import 'package:dooadex_flutter_skeleton/components/text_fields/underline_text_field.dart';
 import 'package:dooadex_flutter_skeleton/configs/palette.dart';
@@ -12,49 +14,43 @@ class UnderlineTextFieldTestView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<UnderlineTextFieldTestViewModel>(
-            create: (context) => UnderlineTextFieldTestViewModel()),
+        ChangeNotifierProvider<UnderlineTextFieldTestViewModel>(create: (context) => UnderlineTextFieldTestViewModel()),
       ],
-      child: Consumer<UnderlineTextFieldTestViewModel>(
-          builder: (context, underlineTextFieldTestViewModel, child) {
+      child: Consumer<UnderlineTextFieldTestViewModel>(builder: (context, underlineTextFieldTestViewModel, child) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             UnderlineTextField(
               hintText: "hint text_field_test",
-              textEditingController: underlineTextFieldTestViewModel
-                  .textFieldController01.textEditingController,
+              textEditingController: underlineTextFieldTestViewModel.textFieldController01.textEditingController,
             ),
-            Text(underlineTextFieldTestViewModel.textFieldController01
-                .getText()),
+            Text(underlineTextFieldTestViewModel.textFieldController01.getText()),
             const SizedBox(
               height: 16,
             ),
             UnderlineTextField.suffix(
-              onPressed: () {
-                underlineTextFieldTestViewModel.setText();
-              },
+              suffix: DooadexButton.destructiveText(
+                onPressed: () {
+                  underlineTextFieldTestViewModel.setText();
+                },
+                text: "add",
+                textStyle: DooadexTypo.subhead.copyWith(color: DooadexColor.bilobaFlower),
+              ),
               hintText: "hint text_field_test",
-              textEditingController: underlineTextFieldTestViewModel
-                  .textFieldController02.textEditingController,
-              focusNode: underlineTextFieldTestViewModel
-                  .textFieldController02.focusNode,
+              textEditingController: underlineTextFieldTestViewModel.textFieldController02.textEditingController,
+              focusNode: underlineTextFieldTestViewModel.textFieldController02.focusNode,
             ),
             Text(underlineTextFieldTestViewModel.text ?? ""),
             const SizedBox(
               height: 16,
             ),
             DateTextField.dd(
-              textEditingController: underlineTextFieldTestViewModel
-                  .textFieldController03.textEditingController,
+              textEditingController: underlineTextFieldTestViewModel.textFieldController03.textEditingController,
               errorText:
-                  underlineTextFieldTestViewModel.inputOverError() == true
-                      ? "30일 이하로 입력해주세요."
-                      : null,
+                  underlineTextFieldTestViewModel.inputOverError() == true ? "Please enter within 30 days." : null,
               errorStyle: DooadexTypo.caption,
             ),
-            Text(underlineTextFieldTestViewModel.textFieldController03
-                .getText()),
+            Text(underlineTextFieldTestViewModel.textFieldController03.getText()),
           ],
         );
       }),

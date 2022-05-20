@@ -1,11 +1,11 @@
 import 'package:intl/intl.dart';
 
 class Parser {
-  static String toPhoneNumber({required String phoneNumber}) {
-    return phoneNumber.replaceAllMapped(phoneNumber, (m) => '${m[1]}-${m[2]}-${m[3]}');
+  String toPhoneNumber({required String phoneNumber}) {
+    return phoneNumber.replaceAllMapped(RegExp(r"(\d{4})(\d{4})$"), (m) => '010-${m[1]}-${m[2]}');
   }
 
-  static DateTime toBirthDateTime({required String stringDateTime}) {
+  DateTime toBirthDateTime({required String stringDateTime}) {
     String year = stringDateTime.substring(0, 4);
     String month = stringDateTime.substring(4, 6);
     String day = stringDateTime.substring(6, 8);
