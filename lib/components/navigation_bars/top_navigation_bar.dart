@@ -75,7 +75,7 @@ class _TitleTopNavigationBar extends TopNavigationBar {
                         ),
                   ),
                   Expanded(
-                    child: Center(child: Text(title)),
+                    child: Center(child: Text(title, style: style)),
                   ),
                   rightWidget ??
                       const SizedBox(
