@@ -142,8 +142,8 @@ class _ConvexButton extends DooadexButton {
                   height: size?.height,
                   decoration: BoxDecoration(
                     color: hasBeenPressed == false
-                        ? color ?? DooadexColor.ashGray
-                        : tappedColor ?? DooadexColor.artichoke,
+                        ? color ?? DooadexColor.blue
+                        : tappedColor ?? DooadexColor.royalBlueDark,
                     borderRadius: BorderRadius.circular(circular ?? 4.0),
                   ),
                   child: Padding(
@@ -175,7 +175,7 @@ class _ElevatedButton extends DooadexButton {
             child: child,
             style: ElevatedButton.styleFrom(
               minimumSize: size,
-              primary: color ?? DooadexColor.green,
+              primary: color ?? DooadexColor.blue,
               onPrimary: textColor,
               textStyle: textStyle,
               padding: padding,
@@ -204,7 +204,7 @@ class _FilledButton extends DooadexButton {
             child: child,
             style: OutlinedButton.styleFrom(
               minimumSize: size,
-              backgroundColor: color ?? DooadexColor.green,
+              backgroundColor: color ?? DooadexColor.blue,
               primary: textColor ?? Colors.white,
               textStyle: textStyle,
               padding: padding,
@@ -233,7 +233,7 @@ class _FilledTonalButton extends DooadexButton {
             child: child,
             style: OutlinedButton.styleFrom(
               minimumSize: size,
-              backgroundColor: color ?? DooadexColor.ashGray,
+              backgroundColor: color ?? DooadexColor.blue,
               primary: textColor ?? Colors.black87,
               textStyle: textStyle,
               padding: padding,
@@ -264,7 +264,7 @@ class _OutlinedButton extends DooadexButton {
             style: OutlinedButton.styleFrom(
               minimumSize: size,
               backgroundColor: backgroundColor,
-              primary: textColor ?? DooadexColor.green,
+              primary: textColor ?? DooadexColor.blue,
               textStyle: textStyle,
               padding: padding,
               side: borderSide,
@@ -294,7 +294,7 @@ class _TextButton extends DooadexButton {
             style: TextButton.styleFrom(
               minimumSize: size,
               backgroundColor: backgroundColor,
-              primary: textColor ?? DooadexColor.green,
+              primary: textColor ?? DooadexColor.blue,
               textStyle: textStyle,
               padding: padding,
               shape: RoundedRectangleBorder(

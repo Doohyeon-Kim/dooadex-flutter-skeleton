@@ -2,6 +2,7 @@ import 'package:dooadex_flutter_skeleton/constants/dooadex_constants.dart';
 import 'package:dooadex_flutter_skeleton/screens/dooadex_screens.dart';
 import 'package:dooadex_flutter_skeleton/screens/io_samples_screens/text_field_samples/outline_text_field_samples_screen.dart';
 import 'package:dooadex_flutter_skeleton/screens/io_samples_screens/text_field_samples/underline_text_field_samples_screen.dart';
+import 'package:dooadex_flutter_skeleton/screens/uxui_samples/progress_indicator_samples_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -72,6 +73,16 @@ class DooadexRouter {
                 },
               ),
             ]
+          ),
+          GoRoute(
+            path: DooadexRoute.path.progressIndicatorSamples,
+            name: DooadexRoute.name.progressIndicatorSamples,
+            pageBuilder: (context, state) {
+              return MaterialPage(
+                key: state.pageKey,
+                child: const ProgressIndicatorSamplesScreen(),
+              );
+            },
           ),
         ],
       ),

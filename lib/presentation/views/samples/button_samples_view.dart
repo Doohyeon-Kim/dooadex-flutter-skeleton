@@ -14,9 +14,11 @@ class ButtonSamplesView extends StatelessWidget {
           onPressed: () {},
           child: const Text(
             "Convex Button",
+            style: TextStyle(color: Colors.white),
           ),
           onPressedChild: const Text(
             "Convex Button",
+            style: TextStyle(color: Colors.white),
           ),
         ),
         DooadexButton.elevated(
@@ -29,7 +31,10 @@ class ButtonSamplesView extends StatelessWidget {
         ),
         DooadexButton.filledTonal(
           onPressed: () {},
-          child: const Text("Filled Tonal Button"),
+          child: const Text(
+            "Filled Tonal Button",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
         DooadexButton.outlined(
           onPressed: () {},
@@ -51,7 +56,7 @@ class ButtonSamplesView extends StatelessWidget {
           onPressed: () {},
           icon: Icon(
             Icons.wb_incandescent_outlined,
-            color: DooadexColor.green,
+            color: DooadexColor.blue,
           ),
         ),
         const SizedBox(
@@ -59,10 +64,10 @@ class ButtonSamplesView extends StatelessWidget {
         ),
         DooadexButton.fab(
           onPressed: () {},
-          backgroundColor: DooadexColor.ashGray,
+          backgroundColor: DooadexColor.blue,
           child: const Icon(
             Icons.send,
-            color: Colors.black87,
+            color: Colors.white,
           ),
         ),
         const SizedBox(
@@ -70,14 +75,14 @@ class ButtonSamplesView extends StatelessWidget {
         ),
         DooadexButton.expandedFAB(
           onPressed: () {},
-          backgroundColor: DooadexColor.ashGray,
+          backgroundColor: DooadexColor.blue,
           icon: const Icon(
             Icons.send,
-            color: Colors.black87,
+            color: Colors.white,
           ),
           label: Text(
             "Expanded FAB",
-            style: DooadexTypo.caption.copyWith(color: Colors.black87),
+            style: DooadexTypo.caption.copyWith(color: Colors.white),
           ),
         ),
       ],
