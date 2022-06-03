@@ -42,39 +42,39 @@ class HttpUtil {
         dooadexError = DooadexError.badRequest(
             type: responseJson['error']['type'],
             message: responseJson['error']['message'],
-            title: responseJson['error']['error_user_title'],
-            detail: responseJson['error']['error_user_msg']);
+            title: responseJson['error']['title'],
+            detail: responseJson['error']['detail']);
         throw DooadexApiException(statusCode: response.statusCode, dooadexError: dooadexError);
       case 401: // Unauthorized
         dooadexError = DooadexError.unauthorized(
             type: responseJson['error']['type'],
             message: responseJson['error']['message'],
-            title: responseJson['error']['error_user_title'],
-            detail: responseJson['error']['error_user_msg']);
+            title: responseJson['error']['title'],
+            detail: responseJson['error']['detail']);
         throw DooadexApiException(statusCode: response.statusCode, dooadexError: dooadexError);
 
       case 403: // Forbidden
         dooadexError = DooadexError.forbidden(
             type: responseJson['error']['type'],
             message: responseJson['error']['message'],
-            title: responseJson['error']['error_user_title'],
-            detail: responseJson['error']['error_user_msg']);
+            title: responseJson['error']['title'],
+            detail: responseJson['error']['detail']);
         throw DooadexApiException(statusCode: response.statusCode, dooadexError: dooadexError);
 
       case 404: // Not Found
         dooadexError = DooadexError.notFound(
             type: responseJson['error']['type'],
             message: responseJson['error']['message'],
-            title: responseJson['error']['error_user_title'],
-            detail: responseJson['error']['error_user_msg']);
+            title: responseJson['error']['title'],
+            detail: responseJson['error']['detail']);
         throw DooadexApiException(statusCode: response.statusCode, dooadexError: dooadexError);
 
       case 500: // Internal Server Error
         dooadexError = DooadexError.internalServerError(
             type: responseJson['error']['type'],
             message: responseJson['error']['message'],
-            title: responseJson['error']['error_user_title'],
-            detail: responseJson['error']['error_user_msg']);
+            title: responseJson['error']['title'],
+            detail: responseJson['error']['detail']);
         throw DooadexApiException(statusCode: response.statusCode, dooadexError: dooadexError);
 
       default:
