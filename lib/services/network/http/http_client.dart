@@ -51,8 +51,7 @@ class HttpClient {
           .timeout(networkTimeOutLimit);
       return HttpUtil.getResponse(response);
     } on TimeoutException {
-      DooadexError dooadexError = TimeoutError();
-      DooadexNetworkException(dooadexError: dooadexError);
+      DooadexNetworkException(dooadexError: DooadexError.timeoutError());
     } on DooadexApiException {
       rethrow;
     }
@@ -74,8 +73,7 @@ class HttpClient {
           .timeout(networkTimeOutLimit);
       return HttpUtil.getResponse(response);
     } on TimeoutException {
-      DooadexError dooadexError = TimeoutError();
-      DooadexNetworkException(dooadexError: dooadexError);
+      DooadexNetworkException(dooadexError: DooadexError.timeoutError());
     } on DooadexApiException {
       rethrow;
     }
@@ -96,8 +94,7 @@ class HttpClient {
           .timeout(networkTimeOutLimit);
       return HttpUtil.getResponse(response);
     } on TimeoutException {
-      DooadexError dooadexError = TimeoutError();
-      DooadexNetworkException(dooadexError: dooadexError);
+      DooadexNetworkException(dooadexError: DooadexError.timeoutError());
     } on DooadexApiException {
       rethrow;
     }
@@ -118,8 +115,7 @@ class HttpClient {
           .timeout(networkTimeOutLimit);
       return HttpUtil.getResponse(response);
     } on TimeoutException {
-      DooadexError dooadexError = TimeoutError();
-      DooadexNetworkException(dooadexError: dooadexError);
+      DooadexNetworkException(dooadexError: DooadexError.timeoutError());
     } on DooadexApiException {
       rethrow;
     }
@@ -140,8 +136,7 @@ class HttpClient {
           .timeout(networkTimeOutLimit);
       return HttpUtil.getResponse(response);
     } on TimeoutException {
-      DooadexError dooadexError = TimeoutError();
-      DooadexNetworkException(dooadexError: dooadexError);
+      DooadexNetworkException(dooadexError: DooadexError.timeoutError());
     } on DooadexApiException {
       rethrow;
     }
@@ -167,13 +162,11 @@ class HttpClient {
               statusCode: response.statusCode, body: response.body);
           return responseJson;
         default:
-          dooadexError = UnknownError();
           throw DooadexApiException(
-              statusCode: response.statusCode, dooadexError: dooadexError);
+              statusCode: response.statusCode, dooadexError: DooadexError.unknownError());
       }
     } on TimeoutException {
-      DooadexError dooadexError = TimeoutError();
-      DooadexNetworkException(dooadexError: dooadexError);
+      DooadexNetworkException(dooadexError: DooadexError.timeoutError());
     } on DooadexApiException {
       rethrow;
     }

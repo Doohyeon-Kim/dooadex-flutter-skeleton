@@ -19,7 +19,7 @@ class UserLocalDataSource {
     if (user != null) {
       return UserEntity.fromJson(jsonDecode(user.toString()));
     } else {
-      throw DooadexNetworkException(dooadexError: UnstableNetwork());
+      throw DooadexNetworkException(dooadexError: DooadexError.unstableNetwork());
     }
   }
 }

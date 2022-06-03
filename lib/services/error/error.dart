@@ -8,92 +8,88 @@ part 'error.g.dart';
 class DooadexError extends Error {
   String? type;
   String? message;
-  @JsonKey(name: 'error_user_title')
-  String? errorUserTitle;
-  @JsonKey(name: 'error_user_msg')
-  String? errorUserMsg;
+  @JsonKey(name: 'title')
+  String? title;
+  @JsonKey(name: 'detail')
+  String? detail;
 
-  DooadexError(
-      {required this.type,
-      required this.message,
-      required this.errorUserTitle,
-      required this.errorUserMsg});
+  DooadexError({required this.type, required this.message, required this.title, required this.detail});
 
-  factory DooadexError.fromJson(Map<String, dynamic> json) =>
-      _$DooadexErrorFromJson(json);
+  factory DooadexError.fromJson(Map<String, dynamic> json) => _$DooadexErrorFromJson(json);
 
   Map<String, dynamic> toJson() => _$DooadexErrorToJson(this);
+
+  factory DooadexError.badRequest({String? type, String? message, String? title, String? detail}) = _BadRequest;
+
+  factory DooadexError.unauthorized({String? type, String? message, String? title, String? detail}) = _Unauthorized;
+
+  factory DooadexError.forbidden({String? type, String? message, String? title, String? detail}) = _Forbidden;
+
+  factory DooadexError.notFound({String? type, String? message, String? title, String? detail}) = _NotFound;
+
+  factory DooadexError.internalServerError({String? type, String? message, String? title, String? detail}) =
+      _InternalServerError;
+
+  factory DooadexError.unknownError({String? type, String? message, String? title, String? detail}) = _UnknownError;
+
+  factory DooadexError.timeoutError({String? type, String? message, String? title, String? detail}) = _TimeoutError;
+
+  factory DooadexError.unstableNetwork({String? type, String? message, String? title, String? detail}) =
+      _UnstableNetwork;
 }
 
-class BadRequest extends DooadexError {
-  BadRequest({String? type, String? message, String? errorUserTitle, String? errorUserMsg})
-      : super(
-            type: type ?? ErrorType.badRequest,
-            message: message ?? '',
-            errorUserTitle: errorUserTitle ?? '',
-            errorUserMsg: errorUserMsg ?? '');
+class _BadRequest extends DooadexError {
+  _BadRequest({String? type, String? message, String? title, String? detail})
+      : super(type: type ?? ErrorType.badRequest, message: message ?? '', title: title ?? '', detail: detail ?? '');
 }
 
-class Unauthorized extends DooadexError {
-  Unauthorized({String? type, String? message, String? errorUserTitle, String? errorUserMsg})
-      : super(
-            type: type ?? ErrorType.unauthorized,
-            message: message ?? '',
-            errorUserTitle: errorUserTitle ?? '',
-            errorUserMsg: errorUserMsg ?? '');
+class _Unauthorized extends DooadexError {
+  _Unauthorized({String? type, String? message, String? title, String? detail})
+      : super(type: type ?? ErrorType.unauthorized, message: message ?? '', title: title ?? '', detail: detail ?? '');
 }
 
-class Forbidden extends DooadexError {
-  Forbidden({String? type, String? message, String? errorUserTitle, String? errorUserMsg})
-      : super(
-            type: type ?? ErrorType.forbidden,
-            message: message ?? '',
-            errorUserTitle: errorUserTitle ?? '',
-            errorUserMsg: errorUserMsg ?? '');
+class _Forbidden extends DooadexError {
+  _Forbidden({String? type, String? message, String? title, String? detail})
+      : super(type: type ?? ErrorType.forbidden, message: message ?? '', title: title ?? '', detail: detail ?? '');
 }
 
-class NotFound extends DooadexError {
-  NotFound({String? type, String? message, String? errorUserTitle, String? errorUserMsg})
-      : super(
-            type: type ?? ErrorType.notFound,
-            message: message ?? '',
-            errorUserTitle: errorUserTitle ?? '',
-            errorUserMsg: errorUserMsg ?? '');
+class _NotFound extends DooadexError {
+  _NotFound({String? type, String? message, String? title, String? detail})
+      : super(type: type ?? ErrorType.notFound, message: message ?? '', title: title ?? '', detail: detail ?? '');
 }
 
-class InternalServerError extends DooadexError {
-  InternalServerError(
-      {String? type, String? message, String? errorUserTitle, String? errorUserMsg})
+class _InternalServerError extends DooadexError {
+  _InternalServerError({String? type, String? message, String? title, String? detail})
       : super(
             type: type ?? ErrorType.internalServerError,
             message: message ?? '',
-            errorUserTitle: errorUserTitle ?? '',
-            errorUserMsg: errorUserMsg ?? '');
+            title: title ?? '',
+            detail: detail ?? '');
 }
 
-class UnknownError extends DooadexError {
-  UnknownError({String? type, String? message, String? errorUserTitle, String? errorUserMsg})
+class _UnknownError extends DooadexError {
+  _UnknownError({String? type, String? message, String? title, String? detail})
       : super(
             type: type ?? ErrorType.unknownError,
             message: message ?? 'Unknown Error',
-            errorUserTitle: errorUserTitle ?? '알 수 없는 오류',
-            errorUserMsg: errorUserMsg ?? '알 수 없는 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.');
+            title: title ?? '알 수 없는 오류',
+            detail: detail ?? '알 수 없는 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.');
 }
 
-class TimeoutError extends DooadexError{
-  TimeoutError({String? type, String? message, String? errorUserTitle, String? errorUserMsg})
+class _TimeoutError extends DooadexError {
+  _TimeoutError({String? type, String? message, String? title, String? detail})
       : super(
-      type: type ?? ErrorType.timeoutError,
-      message: message ?? 'Timeout Error',
-      errorUserTitle: errorUserTitle ?? "네트워크 연결 시간 초과",
-      errorUserMsg: errorUserMsg ?? "네트워크 연결 시간이 초과되었습니다.\n잠시 후 다시 시도해주세요.");
+            type: type ?? ErrorType.timeoutError,
+            message: message ?? 'Timeout Error',
+            title: title ?? "네트워크 연결 시간 초과",
+            detail: detail ?? "네트워크 연결 시간이 초과되었습니다.\n잠시 후 다시 시도해주세요.");
 }
 
-class UnstableNetwork extends DooadexError{
-  UnstableNetwork({String? type, String? message, String? errorUserTitle, String? errorUserMsg})
+class _UnstableNetwork extends DooadexError {
+  _UnstableNetwork({String? type, String? message, String? title, String? detail})
       : super(
-      type: type ?? ErrorType.unstableNetwork,
-      message: message ?? 'Unstable Network',
-      errorUserTitle: errorUserTitle ?? "불안정한 네트워크 환경",
-      errorUserMsg: errorUserMsg ?? "네트워크 환경이 불안정 합니다.\n잠시 후 다시 시도해주세요.");
+            type: type ?? ErrorType.unstableNetwork,
+            message: message ?? 'Unstable Network',
+            title: title ?? "불안정한 네트워크 환경",
+            detail: detail ?? "네트워크 환경이 불안정 합니다.\n잠시 후 다시 시도해주세요.");
 }

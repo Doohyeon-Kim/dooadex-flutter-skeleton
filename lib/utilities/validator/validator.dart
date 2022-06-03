@@ -21,6 +21,10 @@ class Validator {
     return regExp.hasMatch(phoneNumber) == true ? true : false;
   }
 
+  static bool validateMoreThan14({required DateTime birthDate}) {
+    return DateTime.now().difference(birthDate).inDays > 5112 == true ? true : false;
+  }
+
   static bool validateBirthDate({required DateTime birthDate}) {
     return DateTime.now().isAfter(birthDate) == false ? false : true;
   }

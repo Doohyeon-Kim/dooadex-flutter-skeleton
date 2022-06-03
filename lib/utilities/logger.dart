@@ -7,7 +7,7 @@ class DooadexLogger {
 
   static void exception(DooadexError dooadexError) {
     Logger(printer: PrettyPrinter(methodCount: 15)).e(
-        "${DateTime.now()}\nException: ${dooadexError.type}\nMessage: ${dooadexError.message}\nError message for user [${dooadexError.errorUserTitle}: ${dooadexError.errorUserMsg}]");
+        "${DateTime.now()}\nException: ${dooadexError.type}\nMessage: ${dooadexError.message}\nError message for user [${dooadexError.title}: ${dooadexError.detail}]");
   }
 
   static void apiRequest(
@@ -27,7 +27,7 @@ class DooadexLogger {
   static void apiResponseError(
       {required int statusCode, required DooadexError dooadexError}) {
     Logger(printer: PrettyPrinter(methodCount: 20)).e(
-      "${DateTime.now()}\nStatus Code: $statusCode\nError Type: ${dooadexError.type}\nError Message: ${dooadexError.message}\nError message for user [${dooadexError.errorUserTitle}: ${dooadexError.errorUserMsg}]",
+      "${DateTime.now()}\nStatus Code: $statusCode\nError Type: ${dooadexError.type}\nError Message: ${dooadexError.message}\nError message for user [${dooadexError.title}: ${dooadexError.detail}]",
     );
   }
 }

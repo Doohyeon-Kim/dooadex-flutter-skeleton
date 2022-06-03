@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'presentation/view_models/user/user_view_models.dart';
-import 'services/kakao_sdk/kakao_sdk.dart';
+import 'services/kakao_sdk/kakao_sdk_manager.dart';
 
 void main() {
   KakaoSdkManager.init();
