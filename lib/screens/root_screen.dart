@@ -2,6 +2,7 @@ import 'package:dooadex_flutter_skeleton/configs/app_config.dart';
 import 'package:dooadex_flutter_skeleton/constants/app_constants.dart';
 import 'package:dooadex_flutter_skeleton/presentation/views/splash_view.dart';
 import 'package:dooadex_flutter_skeleton/services/native_api/local_notification.dart';
+import 'package:dooadex_http/dooadex_http.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -85,6 +86,10 @@ class _RootScreenState extends State<RootScreen> {
     // } else {
     //   logger.i('token is null');
     // }
+
+
+    HttpConfig.scheme = "http";
+
 
     if (splashHolder) {
       await Future.delayed(splashHolderDuration);

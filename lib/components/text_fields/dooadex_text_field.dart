@@ -1,4 +1,4 @@
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 
 class DooadexTextField extends StatefulWidget {

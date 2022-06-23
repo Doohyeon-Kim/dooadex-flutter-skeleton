@@ -1,4 +1,4 @@
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 
 import 'dooadex_text_field.dart';
@@ -33,7 +33,7 @@ class OutlineTextField extends DooadexTextField {
               InputDecoration(
                 border: border ?? const OutlineInputBorder(),
                 hintText: hintText,
-                hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+                hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.grey),
                 focusedBorder: focusedBorder ?? const OutlineInputBorder(),
                 counterText: counterText ?? "",
                 isDense: true,
@@ -184,7 +184,7 @@ class _OutlinePrefixTextField extends OutlineTextField {
           inputDecoration: InputDecoration(
             border: border ?? const OutlineInputBorder(),
             hintText: hintText,
-            hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+            hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.grey),
             focusedBorder: focusedBorder ?? const OutlineInputBorder(),
             counterText: counterText ?? "",
             contentPadding: contentPadding,
@@ -234,7 +234,7 @@ class _OutlinePrefixIconTextField extends OutlineTextField {
           inputDecoration: InputDecoration(
             border: border ?? const OutlineInputBorder(),
             hintText: hintText,
-            hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+            hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.grey),
             focusedBorder: focusedBorder ?? const OutlineInputBorder(),
             counterText: counterText ?? "",
             contentPadding: contentPadding,
@@ -243,7 +243,7 @@ class _OutlinePrefixIconTextField extends OutlineTextField {
                   padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
                   child: Text(
                     "prefix",
-                    style: DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+                    style: DooadexTypo.headline.copyWith(color: DooadexColor.grey),
                   ),
                 ),
             isDense: true,
@@ -291,7 +291,7 @@ class _OutlineSuffixTextField extends OutlineTextField {
           inputDecoration: InputDecoration(
             border: border ?? const OutlineInputBorder(),
             hintText: hintText,
-            hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+            hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.grey),
             focusedBorder: focusedBorder ?? const OutlineInputBorder(),
             counterText: counterText ?? "",
             contentPadding: contentPadding,
@@ -340,7 +340,7 @@ class _OutlineSingleTextField extends OutlineTextField {
           inputDecoration: InputDecoration(
             border: border ?? const OutlineInputBorder(),
             hintText: hintText,
-            hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+            hintStyle: hintStyle ?? DooadexTypo.headline.copyWith(color: DooadexColor.grey),
             focusedBorder: focusedBorder ?? const OutlineInputBorder(),
             counterText: counterText ?? "",
             contentPadding: contentPadding,

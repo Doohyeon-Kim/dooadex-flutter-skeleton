@@ -1,6 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:dooadex_logger/dooadex_logger.dart';
 
-import '../../utilities/logger.dart';
 
 class ConnectivityManager {
   ConnectivityManager._();
@@ -8,7 +8,7 @@ class ConnectivityManager {
   static Future<bool> networkConnected() async {
     final ConnectivityResult connectivityResult =
         await (Connectivity().checkConnectivity());
-    logger.d("Connectivity: ${connectivityResult.name}");
+    DooadexLogger("Connectivity: ${connectivityResult.name}");
     if (connectivityResult == ConnectivityResult.mobile ||
         connectivityResult == ConnectivityResult.wifi ||
         connectivityResult == ConnectivityResult.ethernet) {

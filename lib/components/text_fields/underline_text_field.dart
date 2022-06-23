@@ -1,5 +1,5 @@
 import 'package:dooadex_flutter_skeleton/components/text_fields/dooadex_text_field.dart';
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 
 class UnderlineTextField extends DooadexTextField {
@@ -28,7 +28,7 @@ class UnderlineTextField extends DooadexTextField {
                 border: const UnderlineInputBorder(),
                 hintText: hintText,
                 hintStyle:
-                    DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+                    DooadexTypo.headline.copyWith(color: DooadexColor.grey),
                 focusedBorder: const UnderlineInputBorder(),
                 counterText: counterText ?? "",
                 // isDense: true,
@@ -120,7 +120,7 @@ class _UnderlineSuffixTextField extends UnderlineTextField {
           inputDecoration: InputDecoration(
             border: const UnderlineInputBorder(),
             hintText: hintText,
-            hintStyle: DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+            hintStyle: DooadexTypo.headline.copyWith(color: DooadexColor.grey),
             focusedBorder: const UnderlineInputBorder(),
             suffix: suffix ?? const Text("suffix"),
             isDense: true,
@@ -167,7 +167,7 @@ class _UnderlineSuffixIconTextField extends UnderlineTextField {
           inputDecoration: InputDecoration(
             border: const UnderlineInputBorder(),
             hintText: hintText,
-            hintStyle: DooadexTypo.headline.copyWith(color: DooadexColor.gray),
+            hintStyle: DooadexTypo.headline.copyWith(color: DooadexColor.grey),
             focusedBorder: const UnderlineInputBorder(),
             suffixIcon: suffix ?? const Text("suffix"),
 

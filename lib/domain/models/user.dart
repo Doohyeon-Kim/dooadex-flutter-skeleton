@@ -1,7 +1,8 @@
 class User {
-  final int id;
-  final String name;
-  final int age;
+  final String userId;
+  final String email;
+  final String nickname;
 
-  User({required this.id, required this.name, required this.age});
+
+  User({required this.userId, required this.email, required this.nickname});
 }

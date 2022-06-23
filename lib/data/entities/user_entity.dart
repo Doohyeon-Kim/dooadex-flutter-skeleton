@@ -1,18 +1,20 @@
-import 'package:dooadex_flutter_skeleton/domain/models/user.dart';
+
 import 'package:json_annotation/json_annotation.dart';
+
+import '../../domain/models/user.dart';
 
 part 'user_entity.g.dart';
 
 @JsonSerializable()
 class UserEntity extends User {
 
-  @JsonKey(name: 'count')
-  int id;
-  String name;
-  int age;
+  @JsonKey(name: 'user_id')
+  final String userId;
+  final String email;
+  final String nickname;
 
-  UserEntity({required this.id, required this.name, required this.age})
-      : super(id: id, name: name, age: age);
+  UserEntity({required this.userId, required this.email, required this.nickname})
+      : super(userId: userId, email: email, nickname: nickname);
 
   factory UserEntity.fromJson(Map<String, dynamic> json) =>
       _$UserEntityFromJson(json);

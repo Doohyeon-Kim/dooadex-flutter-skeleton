@@ -33,6 +33,16 @@ class DooadexRouter {
         },
         routes: [
           GoRoute(
+            path: DooadexRoute.path.signUp,
+            name: DooadexRoute.name.signUp,
+            pageBuilder: (context, state) {
+              return MaterialPage(
+                key: state.pageKey,
+                child: const SignUpScreen(),
+              );
+            },
+          ),
+          GoRoute(
             path: DooadexRoute.path.buttonSamples,
             name: DooadexRoute.name.buttonSamples,
             pageBuilder: (context, state) {

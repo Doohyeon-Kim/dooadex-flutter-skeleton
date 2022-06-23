@@ -1,5 +1,5 @@
 import 'package:dooadex_flutter_skeleton/components/text_fields/underline_text_field.dart';
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 
 import 'outline_text_field.dart';

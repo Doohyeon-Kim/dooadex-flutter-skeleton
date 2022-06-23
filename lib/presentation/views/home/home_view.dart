@@ -35,11 +35,11 @@ class HomeView extends StatelessWidget {
     return ChangeNotifierProvider<BottomNavigationIndexViewModel>(
       create: (context) => BottomNavigationIndexViewModel(),
       child: Consumer<BottomNavigationIndexViewModel>(
-          builder: (context, bottomNaviagationViewModel, child) {
+          builder: (context, bottomNavigationViewModel, child) {
         return Scaffold(
           body: Center(
             child: _widgetOptions
-                .elementAt(bottomNaviagationViewModel.selectedIndex),
+                .elementAt(bottomNavigationViewModel.selectedIndex),
           ),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.shifting,
@@ -47,7 +47,7 @@ class HomeView extends StatelessWidget {
                 context.watch<BottomNavigationIndexViewModel>().selectedIndex,
             items: buildBottomNavBarItems(),
             onTap: (index) {
-              bottomNaviagationViewModel.onItemTapped(index: index);
+              bottomNavigationViewModel.onItemTapped(index: index);
             },
           ),
         );

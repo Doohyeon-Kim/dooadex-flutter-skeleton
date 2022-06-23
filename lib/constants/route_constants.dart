@@ -1,6 +1,7 @@
 class _RoutePath {
   String root = '/';
   String home = '/home';
+  String signUp = 'sign-up';
   String buttonSamples = 'button-samples';
   String textFieldSamples = 'text_field_test-field-samples';
   String underlineTextFieldSamples = 'underline-text_field_test-field-samples';
@@ -11,6 +12,7 @@ class _RoutePath {
 class _NamedRoute {
   String root = '/';
   String home = 'home';
+  String signUp = 'sign_up';
   String buttonSamples = 'button_samples';
   String textFieldSamples = 'text_field_samples';
   String underlineTextFieldSamples = 'underline-text_field_test-field-samples';
