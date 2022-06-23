@@ -1,8 +1,6 @@
 import 'package:dooadex_flutter_skeleton/components/buttons/dooadex_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../configs/palette.dart';
 import '../../presentation/views/samples/button_samples_view.dart';
 
 class ButtonSamplesScreen extends StatelessWidget {
@@ -17,7 +15,6 @@ class ButtonSamplesScreen extends StatelessWidget {
         leading: DooadexButton.icon(
           onPressed: () => GoRouter.of(context).pop(),
           splashRadius: 20,
-          color: DooadexColor.green,
           icon: const Icon(Icons.arrow_back_ios),
         ),
       ),

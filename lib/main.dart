@@ -1,9 +1,10 @@
-import 'package:dooadex_flutter_skeleton/services/nevigation/router.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'presentation/view_models/user/user_view_models.dart';
 import 'services/kakao_sdk/kakao_sdk_manager.dart';
+import 'services/navigation/router.dart';
 
 void main() {
   KakaoSdkManager.init();
@@ -24,8 +25,14 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
+        routeInformationProvider: DooadexRouter.router.routeInformationProvider,
         routeInformationParser: DooadexRouter.router.routeInformationParser,
         routerDelegate: DooadexRouter.router.routerDelegate,
+        theme: ThemeData(
+          primarySwatch: MaterialColor(
+              DooadexColor.primaryMaterialColor.colorHex,
+              DooadexColor.primaryMaterialColor.swatch),
+        ),
       ),
     );
   }

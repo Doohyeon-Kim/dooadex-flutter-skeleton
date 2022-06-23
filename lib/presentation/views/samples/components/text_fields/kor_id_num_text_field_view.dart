@@ -1,6 +1,7 @@
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
+
 import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field/birthday_date_text_field_view_model.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field/gender_number_text_field_view_model.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -50,16 +51,16 @@ class KorIdNumTextFieldView extends StatelessWidget {
                         ? const SizedBox()
                         : Text(
                             birthdayDateTextFieldViewModel.textFieldController.textFieldError.message ?? "",
-                            style: DooadexTypo.caption.copyWith(
-                              color: DooadexColor.red,
+                            style: DooadexTypo.caption1.copyWith(
+                              color: DooadexColor.carmine,
                             ),
                           ),
                     genderNumberTextFieldViewModel.textFieldController.textFieldError.isOccurred == false
                         ? const SizedBox()
                         : Text(
                             genderNumberTextFieldViewModel.textFieldController.textFieldError.message ?? "",
-                            style: DooadexTypo.caption.copyWith(
-                              color: DooadexColor.red,
+                            style: DooadexTypo.caption1.copyWith(
+                              color: DooadexColor.carmine,
                             ),
                           ),
                   ],

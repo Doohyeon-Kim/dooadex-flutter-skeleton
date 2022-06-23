@@ -1,6 +1,5 @@
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
-
-import '../../configs/palette.dart';
 
 class DooadexButton extends StatefulWidget {
   const DooadexButton({
@@ -142,8 +141,8 @@ class _ConvexButton extends DooadexButton {
                   height: size?.height,
                   decoration: BoxDecoration(
                     color: hasBeenPressed == false
-                        ? color ?? DooadexColor.blue
-                        : tappedColor ?? DooadexColor.royalBlueDark,
+                        ? color ?? DooadexColor.primary
+                        : tappedColor ?? DooadexColor.deepPurple,
                     borderRadius: BorderRadius.circular(circular ?? 4.0),
                   ),
                   child: Padding(
@@ -172,16 +171,16 @@ class _ElevatedButton extends DooadexButton {
           key: key,
           buttonWidget: ElevatedButton(
             onPressed: onPressed,
-            child: child,
             style: ElevatedButton.styleFrom(
               minimumSize: size,
-              primary: color ?? DooadexColor.blue,
+              primary: color,
               onPrimary: textColor,
               textStyle: textStyle,
               padding: padding,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(circular ?? 4.0)),
             ),
+            child: child,
           ),
         );
 }
@@ -201,16 +200,16 @@ class _FilledButton extends DooadexButton {
           key: key,
           buttonWidget: OutlinedButton(
             onPressed: onPressed,
-            child: child,
             style: OutlinedButton.styleFrom(
               minimumSize: size,
-              backgroundColor: color ?? DooadexColor.blue,
+              backgroundColor: color ?? DooadexColor.primary,
               primary: textColor ?? Colors.white,
               textStyle: textStyle,
               padding: padding,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(circular ?? 4.0)),
             ),
+            child: child,
           ),
         );
 }
@@ -230,16 +229,17 @@ class _FilledTonalButton extends DooadexButton {
           key: key,
           buttonWidget: OutlinedButton(
             onPressed: onPressed,
-            child: child,
             style: OutlinedButton.styleFrom(
               minimumSize: size,
-              backgroundColor: color ?? DooadexColor.blue,
+              backgroundColor: color ?? DooadexColor.bilobaFlower,
+              // backgroundColor: color ?? DooadexColor.primary.withOpacity(0.5),
               primary: textColor ?? Colors.black87,
               textStyle: textStyle,
               padding: padding,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(circular ?? 4.0)),
             ),
+            child: child,
           ),
         );
 }
@@ -260,17 +260,17 @@ class _OutlinedButton extends DooadexButton {
           key: key,
           buttonWidget: OutlinedButton(
             onPressed: onPressed,
-            child: child,
             style: OutlinedButton.styleFrom(
               minimumSize: size,
               backgroundColor: backgroundColor,
-              primary: textColor ?? DooadexColor.blue,
+              primary: textColor,
               textStyle: textStyle,
               padding: padding,
               side: borderSide,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(circular ?? 4.0)),
             ),
+            child: child,
           ),
         );
 }
@@ -290,16 +290,16 @@ class _TextButton extends DooadexButton {
           key: key,
           buttonWidget: TextButton(
             onPressed: onPressed,
-            child: child,
             style: TextButton.styleFrom(
               minimumSize: size,
               backgroundColor: backgroundColor,
-              primary: textColor ?? DooadexColor.blue,
+              primary: textColor,
               textStyle: textStyle,
               padding: padding,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(circular ?? 4.0)),
             ),
+            child: child,
           ),
         );
 }
@@ -325,7 +325,7 @@ class _DestructiveTextButton extends DooadexButton {
               text,
               style: textStyle ??
                   DooadexTypo.body.copyWith(
-                    color: color ?? DooadexColor.red,
+                    color: color ?? DooadexColor.primary,
                   ),
             ),
           ),
@@ -345,7 +345,7 @@ class _IconButton extends DooadexButton {
             splashRadius: splashRadius,
             icon: icon,
             onPressed: onPressed,
-            color: color,
+            color: color ?? DooadexColor.primary,
           ),
         );
 }
@@ -361,8 +361,8 @@ class _FAB extends DooadexButton {
           buttonWidget: FloatingActionButton(
             heroTag: "FAB",
             onPressed: onPressed,
-            child: child,
             backgroundColor: backgroundColor,
+            child: child,
           ),
         );
 }

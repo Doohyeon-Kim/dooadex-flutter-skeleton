@@ -1,11 +1,11 @@
 import 'package:dooadex_flutter_skeleton/components/buttons/dooadex_button.dart';
 import 'package:dooadex_flutter_skeleton/components/navigation_bars/top_navigation_bar.dart';
 import 'package:dooadex_flutter_skeleton/components/text_fields/outline_text_field.dart';
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field_test/outline_text_field_test_view_model.dart';
-import 'package:dooadex_flutter_skeleton/presentation/views/text_fields/kor_id_num_text_field_view.dart';
-import 'package:dooadex_flutter_skeleton/presentation/views/text_fields/nickname_text_field_view.dart';
-import 'package:dooadex_flutter_skeleton/presentation/views/text_fields/phone_number_text_field_view.dart';
+import 'package:dooadex_flutter_skeleton/presentation/views/samples/components/text_fields/kor_id_num_text_field_view.dart';
+import 'package:dooadex_flutter_skeleton/presentation/views/samples/components/text_fields/nickname_text_field_view.dart';
+import 'package:dooadex_flutter_skeleton/presentation/views/samples/components/text_fields/phone_number_text_field_view.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +22,7 @@ class OutlineTextFieldSamplesScreen extends StatelessWidget {
             TopNavigationBar.title(
               title: "Outline Text Field Samples",
               context: context,
-              style: DooadexTypo.headline,
+              style: DooadexTypo.headline.copyWith(color: DooadexColor.primary),
             ),
             Expanded(
               child: MultiProvider(

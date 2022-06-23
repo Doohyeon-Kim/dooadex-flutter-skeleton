@@ -217,7 +217,7 @@ packages:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   dart_style:
     dependency: transitive
     description:
@@ -239,6 +239,41 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.6"
+  dooadex_constants:
+    dependency: "direct main"
+    description:
+      name: dooadex_constants
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.3"
+  dooadex_error_handler:
+    dependency: "direct main"
+    description:
+      name: dooadex_error_handler
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.3"
+  dooadex_http:
+    dependency: "direct main"
+    description:
+      name: dooadex_http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.3"
+  dooadex_logger:
+    dependency: "direct main"
+    description:
+      name: dooadex_logger
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.3"
+  dooadex_palette:
+    dependency: "direct main"
+    description:
+      name: dooadex_palette
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   encrypt:
     dependency: transitive
     description:
@@ -285,7 +320,7 @@ packages:
       name: flutter_lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "2.0.1"
   flutter_local_notifications:
     dependency: "direct main"
     description:
@@ -414,7 +449,7 @@ packages:
       name: getwidget
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.5"
+    version: "3.0.1"
   glob:
     dependency: transitive
     description:
@@ -428,14 +463,14 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.0"
+    version: "4.0.0"
   google_fonts:
     dependency: "direct main"
     description:
       name: google_fonts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.3"
+    version: "3.0.1"
   graphs:
     dependency: transitive
     description:
@@ -568,7 +603,7 @@ packages:
       name: lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "2.0.0"
   logger:
     dependency: "direct dev"
     description:
@@ -792,7 +827,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.2"
+    version: "6.0.3"
   pub_semver:
     dependency: transitive
     description:
@@ -1073,4 +1108,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.17.0 <3.0.0"
-  flutter: ">=2.10.0-0"
+  flutter: ">=3.0.0"

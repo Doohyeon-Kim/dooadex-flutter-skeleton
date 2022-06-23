@@ -1,7 +1,7 @@
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/buttons/dooadex_button.dart';
-import '../../../configs/palette.dart';
 
 class ButtonSamplesView extends StatelessWidget {
   const ButtonSamplesView({Key? key}) : super(key: key);
@@ -12,11 +12,11 @@ class ButtonSamplesView extends StatelessWidget {
       children: [
         DooadexButton.convex(
           onPressed: () {},
-          child: const Text(
+          onPressedChild: const Text(
             "Convex Button",
             style: TextStyle(color: Colors.white),
           ),
-          onPressedChild: const Text(
+          child: const Text(
             "Convex Button",
             style: TextStyle(color: Colors.white),
           ),
@@ -46,8 +46,8 @@ class ButtonSamplesView extends StatelessWidget {
         ),
         DooadexButton.filled(
           onPressed: () {},
-          child: const Text("Circular Filled Button"),
           circular: 20,
+          child: const Text("Circular Filled Button"),
         ),
         const SizedBox(
           height: 8,
@@ -56,7 +56,6 @@ class ButtonSamplesView extends StatelessWidget {
           onPressed: () {},
           icon: Icon(
             Icons.wb_incandescent_outlined,
-            color: DooadexColor.blue,
           ),
         ),
         const SizedBox(
@@ -64,7 +63,6 @@ class ButtonSamplesView extends StatelessWidget {
         ),
         DooadexButton.fab(
           onPressed: () {},
-          backgroundColor: DooadexColor.blue,
           child: const Icon(
             Icons.send,
             color: Colors.white,
@@ -75,14 +73,13 @@ class ButtonSamplesView extends StatelessWidget {
         ),
         DooadexButton.expandedFAB(
           onPressed: () {},
-          backgroundColor: DooadexColor.blue,
           icon: const Icon(
             Icons.send,
             color: Colors.white,
           ),
           label: Text(
             "Expanded FAB",
-            style: DooadexTypo.caption.copyWith(color: Colors.white),
+            style: DooadexTypo.caption1.copyWith(color: Colors.white),
           ),
         ),
       ],

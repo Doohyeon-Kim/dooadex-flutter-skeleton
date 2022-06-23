@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dooadex_flutter_skeleton/components/buttons/dooadex_button.dart';
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/location/location_view_model.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/user/user_view_models.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,8 +11,8 @@ import '../../../constants/dooadex_constants.dart';
 import '../../../services/error/error_message_handler.dart';
 import '../../../services/native_api/local_notification.dart';
 
-class ServiceSamplesView extends StatelessWidget {
-  const ServiceSamplesView({Key? key}) : super(key: key);
+class FeatureSamplesView extends StatelessWidget {
+  const FeatureSamplesView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +38,8 @@ class ServiceSamplesView extends StatelessWidget {
                           locationViewModel.getPosition();
                         },
                         textStyle:
-                            notoSansRegular16.copyWith(color: Colors.white),
-                        color: DooadexColor.red,
+                            DooadexTypo.caption1.copyWith(color: Colors.white),
+                         
                         child: const Text("Location"),
                         size: Size(unitWidth60, unitHeight48),
                       ),
@@ -70,8 +70,8 @@ class ServiceSamplesView extends StatelessWidget {
                         ErrorMessageHandler.printErrorMessage(context: context);
                       }
                     },
-                    textStyle: notoSansRegular16.copyWith(color: Colors.white),
-                    color: DooadexColor.red,
+                    textStyle: DooadexTypo.caption1.copyWith(color: Colors.white),
+                     
                     child: const Text("Server API"),
                   ),
                   SizedBox(width: unitWidth8),
@@ -95,8 +95,8 @@ class ServiceSamplesView extends StatelessWidget {
                   ErrorMessageHandler.printErrorMessage(context: context);
                 }
               },
-              textStyle: notoSansRegular16.copyWith(color: Colors.white),
-              color: DooadexColor.red,
+              textStyle: DooadexTypo.caption1.copyWith(color: Colors.white),
+               
               child: const Text("Error Service"),
             ),
             Padding(
@@ -110,8 +110,7 @@ class ServiceSamplesView extends StatelessWidget {
                         context.read<KakaoUserViewModel>().kakaoLogin();
                       }
                     },
-                    textStyle: notoSansRegular16.copyWith(color: Colors.white),
-                    color: DooadexColor.red,
+                    textStyle: DooadexTypo.caption1.copyWith(color: Colors.white),
                     child: const Text("Kakao Login"),
                     size: Size(unitWidth60, unitHeight48),
                   ),
@@ -136,8 +135,7 @@ class ServiceSamplesView extends StatelessWidget {
                   onPressed: () async {
                     await LocalNotification.sampleNotification();
                   },
-                  textStyle: notoSansRegular16.copyWith(color: Colors.white),
-                  color: DooadexColor.red,
+                  textStyle: DooadexTypo.caption1.copyWith(color: Colors.white),
                   child: const Text("Local Notification"),
                 ),
                 SizedBox(width: unitWidth8),
@@ -145,8 +143,7 @@ class ServiceSamplesView extends StatelessWidget {
                   onPressed: () async {
                     LocalNotification.requestPermission();
                   },
-                  textStyle: notoSansRegular16.copyWith(color: Colors.white),
-                  color: DooadexColor.red,
+                  textStyle: DooadexTypo.caption1.copyWith(color: Colors.white),
                   child: const AutoSizeText("Permission Request"),
                   padding: EdgeInsets.symmetric(horizontal: unitWidth8),
                 ),

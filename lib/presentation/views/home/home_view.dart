@@ -1,35 +1,31 @@
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/bottom_navigation_index_view_model.dart';
-import 'package:dooadex_flutter_skeleton/screens/service_samples/service_samples_screen.dart';
+import 'package:dooadex_flutter_skeleton/screens/dooadex_screens.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../screens/io_samples_screens/io_samples_screen.dart';
-import '../../../screens/uxui_samples/uxui_samples_screen.dart';
-
-
 class HomeView extends StatelessWidget {
   List<BottomNavigationBarItem> buildBottomNavBarItems() {
-    return [
+    return const [
       BottomNavigationBarItem(
-          icon: const Icon(Icons.input),
-          label: 'I/O',
-          backgroundColor: DooadexColor.blue),
+          icon: Icon(Icons.input),
+          label: 'Components',
+          backgroundColor: DooadexColor.primary),
       BottomNavigationBarItem(
-          icon: const Icon(Icons.aod),
-          label: 'UX/UI',
-          backgroundColor: DooadexColor.green),
-      BottomNavigationBarItem(
-          icon: const Icon(Icons.apps),
+          icon: Icon(Icons.apps),
           label: 'Services',
-          backgroundColor: DooadexColor.red),
+          backgroundColor: DooadexColor.primary),
+      BottomNavigationBarItem(
+          icon: Icon(Icons.aod),
+          label: 'Features',
+          backgroundColor: DooadexColor.primary),
     ];
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const IoSamplesScreen(),
-    const UxUiSamplesScreen(),
+    const ComponentSamplesScreen(),
     const ServiceSamplesScreen(),
+    const FeatureSamplesScreen(),
   ];
 
   const HomeView({Key? key}) : super(key: key);
@@ -38,14 +34,17 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<BottomNavigationIndexViewModel>(
       create: (context) => BottomNavigationIndexViewModel(),
-      child: Consumer<BottomNavigationIndexViewModel>(builder: (context, bottomNaviagationViewModel, child) {
+      child: Consumer<BottomNavigationIndexViewModel>(
+          builder: (context, bottomNaviagationViewModel, child) {
         return Scaffold(
           body: Center(
-            child: _widgetOptions.elementAt(bottomNaviagationViewModel.selectedIndex),
+            child: _widgetOptions
+                .elementAt(bottomNaviagationViewModel.selectedIndex),
           ),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.shifting,
-            currentIndex: context.watch<BottomNavigationIndexViewModel>().selectedIndex,
+            currentIndex:
+                context.watch<BottomNavigationIndexViewModel>().selectedIndex,
             items: buildBottomNavBarItems(),
             onTap: (index) {
               bottomNaviagationViewModel.onItemTapped(index: index);

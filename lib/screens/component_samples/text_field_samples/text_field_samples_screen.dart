@@ -1,10 +1,10 @@
 import 'package:dooadex_flutter_skeleton/components/navigation_bars/top_navigation_bar.dart';
 import 'package:dooadex_flutter_skeleton/constants/dooadex_constants.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../components/buttons/dooadex_button.dart';
-import '../../../configs/palette.dart';
 
 class TextFieldSamplesScreen extends StatelessWidget {
   const TextFieldSamplesScreen({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class TextFieldSamplesScreen extends StatelessWidget {
           TopNavigationBar.title(
             title: "TextField Samples",
             context: context,
-            style: DooadexTypo.headline,
+            style: DooadexTypo.headline.copyWith(color: DooadexColor.primary),
           ),
           Center(
             child: Column(
@@ -28,14 +28,12 @@ class TextFieldSamplesScreen extends StatelessWidget {
                   onPressed: () {
                     GoRouter.of(context).pushNamed(DooadexRoute.name.underlineTextFieldSamples);
                   },
-                  color: DooadexColor.blue,
                   child: const Text("Underline Text Field"),
                 ),
                 DooadexButton.elevated(
                   onPressed: () {
                     GoRouter.of(context).pushNamed(DooadexRoute.name.outlineTextFieldSamples);
                   },
-                  color: DooadexColor.blue,
                   child: const Text("Outline Text Field"),
                 ),
               ],

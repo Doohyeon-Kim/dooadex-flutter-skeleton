@@ -1,6 +1,6 @@
 import 'package:dooadex_flutter_skeleton/components/text_fields/outline_text_field.dart';
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field/phone_number_text_field_view_model.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +21,7 @@ class PhoneNumberTextFieldView extends StatelessWidget {
               hintText: "12345678",
               maxLength: 8,
               hintStyle: DooadexTypo.headline.copyWith(
-                color: DooadexColor.gray,
+                color: DooadexColor.secondary,
               ),
               errorText:
                   context.watch<PhoneNumberTextFieldViewModel>().textFieldController.textFieldError.isOccurred == true
@@ -32,7 +32,7 @@ class PhoneNumberTextFieldView extends StatelessWidget {
                 child: Text(
                   "010 -",
                   style: DooadexTypo.headline.copyWith(
-                    color: DooadexColor.gray,
+                    color: DooadexColor.secondary,
                   ),
                 ),
               ),

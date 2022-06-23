@@ -2,8 +2,8 @@ import 'package:dooadex_flutter_skeleton/components/buttons/dooadex_button.dart'
 import 'package:dooadex_flutter_skeleton/components/navigation_bars/top_navigation_bar.dart';
 import 'package:dooadex_flutter_skeleton/components/text_fields/date_text_field.dart';
 import 'package:dooadex_flutter_skeleton/components/text_fields/underline_text_field.dart';
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
 import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field_test/underline_text_field_test_view_model.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -48,7 +48,7 @@ class UnderlineTextFieldTestView extends StatelessWidget {
               textEditingController: underlineTextFieldTestViewModel.textFieldController03.textEditingController,
               errorText:
                   underlineTextFieldTestViewModel.inputOverError() == true ? "Please enter within 30 days." : null,
-              errorStyle: DooadexTypo.caption,
+              errorStyle: DooadexTypo.caption1,
             ),
             Text(underlineTextFieldTestViewModel.textFieldController03.getText()),
           ],

@@ -1,6 +1,7 @@
 import 'package:dooadex_flutter_skeleton/components/text_fields/date_text_field.dart';
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
+
 import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field/birthday_date_text_field_view_model.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,7 @@ class BirthdayDateTextFieldView extends StatelessWidget {
         DateTextField.yyyymmdd(
           textEditingController:
               context.read<BirthdayDateTextFieldViewModel>().textFieldController.textEditingController,
-          errorStyle: DooadexTypo.caption.copyWith(height: 0),
+          errorStyle: DooadexTypo.caption1.copyWith(height: 0),
           errorText:
               context.watch<BirthdayDateTextFieldViewModel>().textFieldController.textFieldError.isOccurred == true
                   ? ""

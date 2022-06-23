@@ -1,20 +1,20 @@
-import 'package:flutter/material.dart';
 
-import '../../presentation/views/samples/service_samples_view.dart';
+import 'package:dooadex_flutter_skeleton/constants/route_constants.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../components/buttons/dooadex_button.dart';
 
 class ServiceSamplesScreen extends StatelessWidget {
   const ServiceSamplesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: const [
-            ServiceSamplesView(),
-          ],
-        ),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+
+      ],
     );
   }
 }

@@ -1,7 +1,8 @@
 import 'package:dooadex_flutter_skeleton/components/figures/circles/circle.dart';
 import 'package:dooadex_flutter_skeleton/components/text_fields/outline_text_field.dart';
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
+
 import 'package:dooadex_flutter_skeleton/presentation/view_models/text_field/gender_number_text_field_view_model.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +22,7 @@ class GenderNumberTextFieldView extends StatelessWidget {
                   context.watch<GenderNumberTextFieldViewModel>().textFieldController.textFieldError.isOccurred == true
                       ? ""
                       : null,
-              errorStyle: DooadexTypo.caption.copyWith(height: 0),
+              errorStyle: DooadexTypo.caption1.copyWith(height: 0),
             ),
             Row(
               children: [

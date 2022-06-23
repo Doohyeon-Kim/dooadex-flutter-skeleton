@@ -1,8 +1,14 @@
-import 'package:dooadex_flutter_skeleton/configs/palette.dart';
+import 'package:dooadex_palette/dooadex_palette.dart';
 import 'package:flutter/material.dart';
 
 class ProgressBar extends StatelessWidget {
-  const ProgressBar({Key? key, this.color, this.backgroundColor, this.linearProgressIndicator, this.height}) : super(key: key);
+  const ProgressBar(
+      {Key? key,
+      this.color,
+      this.backgroundColor,
+      this.linearProgressIndicator,
+      this.height})
+      : super(key: key);
 
   final Color? color;
   final Color? backgroundColor;
@@ -21,8 +27,8 @@ class ProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return linearProgressIndicator ??
         LinearProgressIndicator(
-          color: color ?? DooadexColor.green,
-          backgroundColor: backgroundColor ?? DooadexColor.ashGray,
+          color: color,
+          backgroundColor: backgroundColor ?? DooadexColor.bilobaFlower,
           minHeight: height,
         );
   }
@@ -36,8 +42,8 @@ class _DeterminateProgressBar extends ProgressBar {
     double? height,
   }) : super(
           linearProgressIndicator: LinearProgressIndicator(
-            color: color ?? DooadexColor.green,
-            backgroundColor: backgroundColor ?? DooadexColor.ashGray,
+            color: color,
+            backgroundColor: backgroundColor ?? DooadexColor.bilobaFlower,
             value: progress,
             minHeight: height,
           ),
